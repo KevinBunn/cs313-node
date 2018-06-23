@@ -75,7 +75,7 @@ express()
             }
         }
 
-        res.locals.price = price.toPrecision(2);
+        res.locals.price = price.toFixed(2);
         res.render('pages/result');
     })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
