@@ -1,16 +1,21 @@
-const express = require('express')
-const path = require('path')
-const PORT = process.env.PORT || 5000
+const express = require('express');
+const path = require('path');
+const PORT = process.env.PORT || 5000;
+const bodyParser = require('body-parser');
 
 express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
+    .use(express.static(path.join(__dirname, 'public')))
+    .use( bodyParser.json() )     // to support JSON-encoded bodies
+    .use(bodyParser.urlencoded({     // to support URL-encoded bodies
+    extended: true
+    }))
+    .set('views', path.join(__dirname, 'views'))
+    .set('view engine', 'ejs')
+    .get('/', (req, res) => res.render('pages/index'))
     .post('/result', function(req, res) {
 
-        let type = req.query.type;
-        let weight = req.query.weight;
+        let type = req.body.type;
+        let weight = req.body.weight;
         let price = 0;
 
         switch (type) {
@@ -78,4 +83,4 @@ express()
         res.locals.price = price.toFixed(2);
         res.render('pages/result');
     })
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
