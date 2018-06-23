@@ -7,7 +7,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-    .get('/result', function(req, res) {
+    .post('/result', function(req, res) {
 
         let type = req.query.type;
         let weight = req.query.weight;
