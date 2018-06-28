@@ -7,80 +7,40 @@ express()
     .use(express.static(path.join(__dirname, 'public')))
     .use( bodyParser.json() )     // to support JSON-encoded bodies
     .use(bodyParser.urlencoded({     // to support URL-encoded bodies
-    extended: true
+        extended: true
     }))
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
-    .get('/', (req, res) => res.render('pages/index'))
-    .post('/result', function(req, res) {
+    .get('/video', getVideo)
+    .get('/getPerson', function (req, res) {
 
-        let type = req.body.type;
-        let weight = req.body.weight;
-        let price = 0;
-
-        switch (type) {
-            case "stamped": {
-                if (weight <= 3.5 && weight > 0)
-                    price = .29 + (weight * .21);
-                else
-                    res.locals.weightError = `Weight cannot be over 3.5 for ${type}`;
-                break;
-            }
-            case "metered": {
-                if (weight <= 3.5 && weight > 0)
-                    price = .26 + (weight * .21);
-                else
-                    res.locals.weightError = `Weight cannot be over 3.5 for ${type}`;
-                break;
-            }
-            case "flats": {
-                if (weight <= 13 && weight > 0)
-                    price = ((weight - 1) * .21) + 1;
-                else
-                    res.locals.weightError = `Weight cannot be over 13 for ${type}`;
-                break;
-            }
-            case "first-class": {
-                weight = Math.round(weight);
-                if (weight <= 13 && weight > 0) {
-                    switch (weight) {
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                            price = 3.50;
-                            break;
-                        case 5:
-                        case 6:
-                        case 7:
-                        case 8:
-                            price = 3.75;
-                            break;
-                        case 9:
-                            price = 4.10;
-                            break;
-                        case 10:
-                            price = 4.45;
-                            break;
-                        case 11:
-                            price = 4.80;
-                            break;
-                        case 12:
-                            price = 5.15;
-                            break;
-                        case 13:
-                            price = 5.50;
-                            break;
-                    }
-                }
-                else {
-                    res.locals.weightError = `Weight cannot be over 13 for ${type}`;
-                }
-                break;
-            }
-        }
-
-        res.locals.price = price.toFixed(2);
-        res.render('pages/result');
     })
-    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+    .get('/tags', getTags)
+    .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
+function getVideo(req, res) {
+    console.log("getting video");
+    var id = req.query.id
+    console.log(`looking for video with id: ${id}`);
+    //TODO: get the video from the DB here
+
+
+
+    var result = {title: "Charlie bit my finger",
+                   id: "37",
+                   link: "garjib"};
+
+    res.json(result);
+}
+
+function getTags (req, res) {
+    console.log("getting tags");
+
+    var id = req.query.id;
+
+    var result = [{name: "comedy", id: "1"},
+                  {name: "cat videos", id: "2"},
+                  {name: "action", id: "3"}];
+
+    res.json(result);
+}
