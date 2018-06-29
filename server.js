@@ -1,8 +1,9 @@
-const app = require('express');
+const express = require('express');
 const PORT = process.env.PORT || 5000;
 const path = require('path');
 
-app().use(express.static(path.join(__dirname, 'public')))
+express()
+    .use(express.static(path.join(__dirname, 'public')))
     .use(express.json())     // to support JSON-encoded bodies
     .use(express.urlencoded(extended = true))
     .set('views', path.join(__dirname, 'views'))
