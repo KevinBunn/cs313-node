@@ -2,7 +2,7 @@ const express = require('express');
 const PORT = process.env.PORT || 5000;
 const path = require('path');
 
-const controller = requre('./controllers/blogController');
+const controller = require('./controllers/blogController');
 
 express()
     .use(express.static(path.join(__dirname, 'public')))
