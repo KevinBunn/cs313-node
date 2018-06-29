@@ -1,0 +1,23 @@
+{
+  "name": "developer_blog",
+  "version": "1.0.0",
+  "description": "developer's blog for the game \"blind grandma\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinBunn/cs313-node.git"
+  },
+  "author": "Kevin Bunn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinBunn/cs313-node/issues"
+  },
+  "homepage": "https://github.com/KevinBunn/cs313-node#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pg": "^7.4.3"
+  }
+}
