@@ -27,7 +27,7 @@ function handleSinglePost(req, res) {
         else {
             console.log(JSON.stringify(results));
             res.locals.blogPostJson = JSON.parse(JSON.stringify(results));
-            res.render("pages/index");
+            res.render("pages/post");
         }
     });
 }
