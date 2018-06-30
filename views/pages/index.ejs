@@ -5,6 +5,13 @@
 </head>
 <body>
     <h1>developer's blog</h1>
-    <p><%- JSON.stringify(blogPostJson) %></p>
+    <% var post = JSON.parse(blogPostJson);
+        post["rows"].forEach(function(row) { %>
+    <div class="blog-post"></div>
+    <h1><%= row.title %></h1>
+    <p><%= row.content %></p>
+    <p>by: <%= row.admin_id %></p>
+
+    <% }); %>
 </body>
 </html>
