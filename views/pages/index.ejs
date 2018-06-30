@@ -11,7 +11,7 @@
     <div class="blog-content">
         <% blogPostJson["rows"].forEach(function(row) { %>
         <div class="blog-post">
-        <h1><%= row.title %></h1>
+        <p class="post-header"><%= row.title %></p>
         <p><%= row.content %></p>
         <p>by: <%= row.admin_id %></p>
         </div>

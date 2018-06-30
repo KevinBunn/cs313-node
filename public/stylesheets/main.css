@@ -9,10 +9,15 @@ body {
 .blog-content {
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 30px;
 }
 
 .blog-post {
     padding: 10px;
     border: black solid 1px;
     background-color: darkturquoise;
+}
+
+.post-header {
+    font-size: 24;
 }
