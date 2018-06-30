@@ -5,7 +5,7 @@ function handleBlog(req, res) {
         if (err)
             console.log(err)
         else {
-            res.locals.blogPostJson = results;
+            res.locals.blogPostJson = JSON.parse(results);
             res.render("pages/index");
         }
     })
