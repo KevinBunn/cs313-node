@@ -31,7 +31,7 @@ function getPosts (callback) {
             throw err;
         } else {
             // We got a result from the db...
-            console.log('Back from DB with: ' + res.rows);
+            console.log('Back from DB with: ' + JSON.stringify(res.rows));
 
             let result = {
                 status: 'success',
