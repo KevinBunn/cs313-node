@@ -13,12 +13,23 @@ body {
 }
 
 .blog-post {
-    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 15px;
     border: black solid 1px;
     background-color: darkturquoise;
 }
 
+.title {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.author {
+
+}
+
 .post-header {
 
-    font-size: 24;
 }

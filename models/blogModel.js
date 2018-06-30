@@ -25,8 +25,26 @@ function getUserInfo (userId, callback) {
     })
 }
 
-function getPosts (callback) {
-    pool.query('SELECT title, content, admin_id FROM post', function(err, res) {
+function getAllPosts (callback) {
+    pool.query('SELECT id, title, content, admin_id FROM post', function(err, res) {
+        if (err) {
+            throw err;
+        } else {
+            // We got a result from the db...
+            console.log('Back from DB with: ' + JSON.stringify(res.rows));
+
+            let result = {
+                status: 'success',
+                rows: res.rows
+            };
+
+            callback(null, result);
+        }
+    })
+}
+
+function getSinglePost (id, callback) {
+    pool.query('SELECT id, title, content, admin_id FROM post WHERE id = $1', [id], function(err, res) {
         if (err) {
             throw err;
         } else {
@@ -45,5 +63,6 @@ function getPosts (callback) {
 
 module.exports = {
     getUserInfo: getUserInfo,
-    getPosts: getPosts
+    getAllPosts: getAllPosts,
+    getSinglePost: getSinglePost
 };
