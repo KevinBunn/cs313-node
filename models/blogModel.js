@@ -6,20 +6,22 @@ const pool = new Pool({
     connectionString: connectionString
 });
 
-function getUserInfo (userId, callback) {
+function getUserInfo (userId) {
     pool.query('SELECT * FROM "user" WHERE user_id = $1', [userId], function(err, res) {
         if (err) {
             throw err;
         } else {
             // We got a result from the db...
-            console.log('Back from DB with: ' + res.rows);
+            console.log('Back from DB with: ' + JSON.stringify(res.rows));
 
             let result = {
                 status: 'success',
                 list: res.rows
             };
 
-            callback(null, result);
+            let resultJson = JSON.parse(JSON.stringify(result));
+
+            return resultJson["rows"]["username"];
         }
 
     })
