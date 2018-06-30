@@ -17,7 +17,7 @@ function getUserInfo (userId) {
 
             let result = {
                 status: 'success',
-                list: res.rows
+                rows: res.rows
             };
 
             let resultJson = JSON.parse(JSON.stringify(result));
