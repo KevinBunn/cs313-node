@@ -7,7 +7,7 @@ function handleBlog(req, res) {
         else {
             console.log(JSON.stringify(results));
             let resultsJson = JSON.parse(JSON.stringify(results));
-            let username = blogModel.getUserInfo(resultsJson["rows"]["admin_id"]);
+            let username = blogModel.getUserInfo(resultsJson["rows"][0]["admin_id"]);
 
             res.locals.blogPostJson = resultsJson;
             res.locals.username = username;
