@@ -21,7 +21,7 @@ function getUserInfo (userId) {
             };
 
             let resultJson = JSON.parse(JSON.stringify(result));
-
+            console.log(resultJson["rows"][0]["username"]);
             return resultJson["rows"][0]["username"];
         }
 
