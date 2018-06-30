@@ -1,6 +1,14 @@
+const blogModel = require('../models/blogModel');
 
 function handleBlog(req, res) {
-    res.render("pages/index");
+    blogModel.getPosts(function (err, results) {
+        if (err)
+            console.log(err)
+        else {
+            res.locals.blogPostJson = results;
+            res.render("pages/index");
+        }
+    })
 }
 
 function handleSignup(req, res) {
