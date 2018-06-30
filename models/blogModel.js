@@ -7,7 +7,7 @@ const pool = new Pool({
 });
 
 function getUserInfo (userId) {
-    pool.query('SELECT * FROM "user" WHERE user_id = $1', [userId], function(err, res) {
+    pool.query('SELECT * FROM "user" WHERE id = $1', [userId], function(err, res) {
         if (err) {
             throw err;
         } else {
