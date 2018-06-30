@@ -5,12 +5,14 @@
 </head>
 <body>
     <h1>developer's blog</h1>
-    <% blogPostJson["rows"].forEach(function(row) { %>
-    <div class="blog-post"></div>
-    <h1><%= row.title %></h1>
-    <p><%= row.content %></p>
-    <p>by: <%= row.admin_id %></p>
-
-    <% }); %>
+    <div class="blog-content">
+        <% blogPostJson["rows"].forEach(function(row) { %>
+        <div class="blog-post">
+        <h1><%= row.title %></h1>
+        <p><%= row.content %></p>
+        <p>by: <%= row.admin_id %></p>
+        </div>
+        <% }); %>
+    </div>
 </body>
 </html>
