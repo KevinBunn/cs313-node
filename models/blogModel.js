@@ -22,7 +22,7 @@ function getUserInfo (userId) {
 
             let resultJson = JSON.parse(JSON.stringify(result));
 
-            return resultJson["rows"]["username"];
+            return resultJson["rows"][0]["username"];
         }
 
     })
