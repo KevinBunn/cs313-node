@@ -8,7 +8,7 @@ function handleBlog(req, res) {
             console.log(JSON.stringify(results));
             let resultsJson = JSON.parse(JSON.stringify(results));
             let username = blogModel.getUserInfo(resultsJson["rows"][0]["admin_id"]);
-
+            console.log(username);
             res.locals.blogPostJson = resultsJson;
             res.locals.username = username;
             res.render("pages/index");
