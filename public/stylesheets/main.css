@@ -2,12 +2,17 @@ body {
     background-color: aquamarine;
 }
 
+.blog-header {
+    text-align: center;
+}
+
 .blog-content {
     margin-left: 10%;
     margin-right: 10%;
 }
 
 .blog-post {
+    padding: 10px;
     border: black solid 1px;
     background-color: darkturquoise;
 }
