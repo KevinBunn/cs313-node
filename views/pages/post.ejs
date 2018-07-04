@@ -2,6 +2,13 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    <script type="text/javascript" src="/scripts/main.js"></script>
+    <script src="/../node_modules/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#tinymce'
+        });
+    </script>
 </head>
 <body>
 <div class="navbar"><a href="/signup" id="login">signup</a></div>
@@ -17,6 +24,7 @@
         </div>
         <p><%= blogPostJson["rows"][0]["content"] %></p>
         <div class="post-footer">
+            <textarea id="tinymce"></textarea>
         </div>
     </div>
 </div>
