@@ -7,9 +7,19 @@
     <script type="text/javascript" src="/scripts/tinymceHelper.js"></script>
 </head>
 <body>
-    <div class="navbar"><a href="/signup" id="login">signup</a></div>
+    <div class="navbar">
+        <div onclick="showNewPostForm()">Submit New Post</div>
+        <a href="/signup" id="login">signup</a>
+    </div>
     <div class="blog-header">
         <h1>developer's blog</h1>
+    </div>
+
+    <div class="blog-content" id="new-post-container">
+        <form>
+            <input type="text" name="title">
+            <textarea id="tinymce" name="content"></textarea>
+        </form>
     </div>
 
     <div class="blog-content">
@@ -22,7 +32,7 @@
         <p><%= row.content %></p>
         <div class="post-footer">
             <a href="/post/<%= row.id %>">comments</a><br>
-            <textarea id="tinymce"></textarea>
+
         </div>
         </div>
         <% }); %>

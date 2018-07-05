@@ -8,6 +8,10 @@ body {
     top: 30%;
 }
 
+#new-post-container {
+    display: none;
+}
+
 .navbar {
     background-color: aliceblue;
     width: 100%;
