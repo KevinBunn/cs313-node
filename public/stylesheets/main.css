@@ -8,6 +8,12 @@ body {
     top: 30%;
 }
 
+.navbar-left {
+    top: 30%;
+    margin-left: 10px;
+    position: relative;
+}
+
 #new-post-container {
     display: none;
 }
@@ -16,7 +22,8 @@ body {
     background-color: aliceblue;
     width: 100%;
     height: 50px;
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
 }
 
 .blog-header {
