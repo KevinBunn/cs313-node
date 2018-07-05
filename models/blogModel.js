@@ -72,7 +72,7 @@ function addUser(username, password, email, callback) {
         }
         else {
             pool.query('INSERT INTO "user" (username, password, email, is_admin) ' +
-                        'VALUES ($1, $2, $3, FALSE)', [username, hash, email], function (err, res) {
+                        'VALUES ($1, $2, $3, FALSE) RETURNING id', [username, hash, email], function (err, res) {
                 if (err) {
                     throw err;
                 } else {
