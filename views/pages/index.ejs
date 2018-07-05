@@ -11,7 +11,19 @@
         <div class="navbar-left">
             <span onclick="showNewPostForm()" id="show-new-post-button">Submit New Post</span>
         </div>
-        <a href="/signup" id="login">signup</a>
+        <div class="dropdown" id="login"><div onclick="dropdown(' . $category_id . ')" class="dropbtn">Login</div>
+            <div class="dropdown-content" id="dropdown-menu-' . $category_id . '">
+                <form>
+                    <input type="text" name="username" placeholder="username">
+                    <input type="password" name="password" placeholder="password">
+                    <a class="custom-button" href="/signup">Signup</a>
+                    <div class="custom-button" type="submit">Submit</div>
+                </form>
+
+
+            </div>
+        </div>
+
     </div>
     <div class="blog-header">
         <h1>developer's blog</h1>
