@@ -1,3 +1,5 @@
 tinymce.init({
-    selector: '#tinymce'
+    selector: '#tinymce',
+    menubar: false,
+    plugins: 'image, imagetools, advlist'
 });
