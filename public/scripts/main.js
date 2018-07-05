@@ -12,7 +12,7 @@ function dropdown() {
 }
 
 window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
+    if (!event.target.matches('.dropbtn') || !event.target.matches('custom-input')) {
 
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
