@@ -3,12 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     <script type="text/javascript" src="/scripts/main.js"></script>
-    <script>
-        const tinymce = require('tinymce');
-        tinymce.init({
-            selector: '#tinymce'
-        });
-    </script>
+    <script type="text/javascript" src="/scripts/tinymceHelper"></script>
 </head>
 <body>
     <div class="navbar"><a href="/signup" id="login">signup</a></div>
@@ -26,6 +21,7 @@
         <p><%= row.content %></p>
         <div class="post-footer">
             <a href="/post/<%= row.id %>">comments</a>
+            <textarea id="tinymce"></textarea>
         </div>
         </div>
         <% }); %>
