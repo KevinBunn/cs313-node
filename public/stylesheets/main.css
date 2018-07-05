@@ -18,6 +18,10 @@ body {
     display: none;
 }
 
+#show-new-post-button {
+    cursor: pointer;
+}
+
 .navbar {
     background-color: aliceblue;
     width: 100%;
