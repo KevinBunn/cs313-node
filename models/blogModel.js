@@ -77,7 +77,7 @@ function addUser(username, password, email, callback) {
                     throw err;
                 } else {
                     // We got a result from the db...
-                    console.log('Inserted into DB: ' + JSON.stringify(res.rows));
+                    console.log('Inserted into "user" at id: ' + res.rows[0].id);
 
                     callback(null);
                 }

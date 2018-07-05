@@ -21,7 +21,7 @@ function handleSignup(req, res) {
         if(err)
             console.log(err);
         else {
-            res.render("pages/index");
+            handleBlog(req, res);
         }
     });
 }
