@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     <script type="text/javascript" src="/scripts/main.js"></script>
+    <script src="/plugins/tinymce/tinymce.js"></script>
     <script type="text/javascript" src="/scripts/tinymceHelper.js"></script>
 </head>
 <body>
@@ -20,7 +21,7 @@
         </div>
         <p><%= row.content %></p>
         <div class="post-footer">
-            <a href="/post/<%= row.id %>">comments</a>
+            <a href="/post/<%= row.id %>">comments</a><br>
             <textarea id="tinymce"></textarea>
         </div>
         </div>
