@@ -17,7 +17,13 @@ function handleBlog(req, res) {
 }
 
 function handleSignup(req, res) {
-    res.render("pages/signup");
+    blogModel.addUser(req.body.username, req.body.password, req.body.email, function(err) {
+        if(err)
+            console.log(err);
+        else {
+            res.render("pages/index");
+        }
+    });
 }
 
 function handleSinglePost(req, res) {

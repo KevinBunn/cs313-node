@@ -12,6 +12,6 @@ express()
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
     .get('/', controller.handleBlog)
-    .get('/signup', controller.handleSignup)
     .get('/post/:id', controller.handleSinglePost)
+    .post('/addUser', controller.handleSignup)
     .listen(PORT, () => console.log(`Listening on ${ PORT }`));

@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const bcrypt = require('bcrypt');
 
 const connectionString = process.env.DATABASE_URL;
 
@@ -64,8 +65,30 @@ function getSinglePost (id, callback) {
     })
 }
 
+function addUser(username, password, email, callback) {
+    bcrypt.hash(password, 10, function(err, hash) {
+        if (err) {
+            throw err;
+        }
+        else {
+            pool.query('INSERT INTO "user" (username, password, email, is_admin) ' +
+                        'VALUES ($1, $2, $3, FALSE)', [username, hash, email], function (err, res) {
+                if (err) {
+                    throw err;
+                } else {
+                    // We got a result from the db...
+                    console.log('Inserted into DB: ' + JSON.stringify(res.rows));
+
+                    callback(null);
+                }
+            })
+        }
+    });
+}
+
 module.exports = {
     getUserInfo: getUserInfo,
     getAllPosts: getAllPosts,
-    getSinglePost: getSinglePost
+    getSinglePost: getSinglePost,
+    addUser: addUser
 };
