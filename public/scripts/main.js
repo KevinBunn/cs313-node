@@ -7,6 +7,6 @@ function hideNewPostForm() {
     newPostForm.setAttribute('style','display: none');
 }
 
-function dropdown(categoryId) {
+function dropdown() {
     document.getElementById("dropdown-menu").classList.add('show');
 }
