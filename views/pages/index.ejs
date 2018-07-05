@@ -17,14 +17,13 @@
         <h1>developer's blog</h1>
     </div>
 
-    <div class="blog-post" id="new-post-container">
-        <form>
-            <input type="text" name="title">
-            <textarea id="tinymce" name="content"></textarea>
-        </form>
-    </div>
-
     <div class="blog-content">
+        <div class="blog-post" id="new-post-container">
+            <form>
+                <input type="text" name="title">
+                <textarea id="tinymce" name="content"></textarea>
+            </form>
+        </div>
         <% blogPostJson["rows"].forEach(function(row) { %>
         <div class="blog-post">
         <div class="post-header">
