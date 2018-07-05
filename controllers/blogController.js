@@ -17,7 +17,7 @@ function handleBlog(req, res) {
 }
 
 function handleSignup(req, res) {
-    res.render("signin.html");
+    res.render("pages/signup");
 }
 
 function handleSinglePost(req, res) {
