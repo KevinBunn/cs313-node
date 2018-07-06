@@ -40,7 +40,7 @@ function createNewPost(title, content, id, callback) {
 }
 
 window.onclick = function(event) {
-    console.log(event.target);
+    //console.log(event.target);
     if (!event.target.matches('.dropbtn') && !event.target.matches('.custom-input')) {
 
         var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -62,6 +62,7 @@ function addPost() {
         console.log(`back from ajax call with response: ${res}`);
         if (res["success"]) {
             createNewPost(title, content, res["id"], function (newBlogPost) {
+                hideNewPostForm();
                 document.getElementById("main-content").appendChild(newBlogPost);
             });
         }
