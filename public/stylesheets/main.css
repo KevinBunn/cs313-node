@@ -1,5 +1,6 @@
 body {
-    background-image: url("/stylesheets/splash_screen.jpg");
+    background: url("/stylesheets/splash_screen.jpg") no-repeat fixed center center / cover;
+    /*background-color: #90d3ca;*/
     margin: 0px;
 }
 #login {
