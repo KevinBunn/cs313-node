@@ -28,7 +28,7 @@ function createNewPost(title, content, id, callback) {
     let blogContent = document.createElement('p');
     blogContent.innerHTML = content;
     newBlogPost.appendChild(blogContent);
-    let blogFooter = doucment.createElement('div');
+    let blogFooter = document.createElement('div');
     blogFooter.classList.add('post-footer');
     let commentsLink = document.createElement('a');
     commentsLink.setAttribute('href', `/post/${id}`);
