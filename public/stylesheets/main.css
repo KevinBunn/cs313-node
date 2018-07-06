@@ -35,10 +35,10 @@ body {
 }
 
 .blog-content {
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 30px;
     max-width: 875px;
+    text-align: center;
+    margin: 10px auto 50px;
+    z-index: 20;
 }
 
 .custom-input {
