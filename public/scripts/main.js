@@ -58,7 +58,7 @@ function addPost() {
     let title = document.getElementById("txtTitle").value;
     let content = tinymce.get("tinymce").getContent();
     console.log(content);
-    callAjaxPost(`/addPost`, function(res) {
+    callAjaxPost(`/addPost`, title, content, function(res) {
         console.log(`back from ajax call with response: ${res}`);
         resJson = JSON.parse(res);
         if (resJson["status"] === "success") {
@@ -73,7 +73,7 @@ function addPost() {
     });
 }
 
-function callAjaxPost(url, callback){
+function callAjaxPost(url, title, content, callback){
     var xmlhttp;
     // compatible with IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp = new XMLHttpRequest();
