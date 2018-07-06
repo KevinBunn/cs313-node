@@ -8,7 +8,7 @@ const pool = new Pool({
 });
 
 function getUserInfo (userId, callback) {
-    console.log(`User id = ${userId}`);
+    //console.log(`User id = ${userId}`);
     pool.query('SELECT * FROM "user" WHERE id = $1', [userId], function(err, res) {
         if (err) {
             throw err;
@@ -22,7 +22,7 @@ function getUserInfo (userId, callback) {
             };
 
             let resultJson = JSON.parse(JSON.stringify(result));
-            console.log(resultJson["rows"][0]["username"]);
+            //console.log(resultJson["rows"][0]["username"]);
             callback(resultJson["rows"][0]["username"]);
         }
 
