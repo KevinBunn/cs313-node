@@ -58,7 +58,7 @@ function addPost() {
     let title = document.getElementById("txtTitle").value;
     let content = tinymce.get("tinymce").getContent();
     console.log(content);
-    callAjax(`/addPost?title=${title}&content=${content}`, function(res) {
+    callAjaxPost(`/addPost`, function(res) {
         console.log(`back from ajax call with response: ${res}`);
         resJson = JSON.parse(res);
         if (resJson["status"] === "success") {
@@ -73,7 +73,7 @@ function addPost() {
     });
 }
 
-function callAjax(url, callback){
+function callAjaxPost(url, callback){
     var xmlhttp;
     // compatible with IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp = new XMLHttpRequest();
@@ -82,6 +82,7 @@ function callAjax(url, callback){
             callback(xmlhttp.responseText);
         }
     }
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
+    xmlhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(`title=${title}&content=${content}`);
 }
