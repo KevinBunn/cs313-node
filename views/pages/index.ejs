@@ -11,9 +11,9 @@
 <body>
     <div class="navbar">
         <div class="navbar-left">
-            <!-- TODO: check session variable to see if user is admin -->
             <% if(loggedIn) {
-                if(user[0]["isAdmin"]) { %>
+                console.log(user[0]["isAdmin"]);
+                if(user[0]["isAdmin"] == true) { %>
                 <span onclick="showNewPostForm()" id="show-new-post-button">Submit New Post</span>
             <% }
               } %>
