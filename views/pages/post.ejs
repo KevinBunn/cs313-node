@@ -11,10 +11,27 @@
     </script>
 </head>
 <body>
-<div class="navbar"><a href="/signup" id="login">signup</a></div>
-<div class="blog-header">
-    <h1>developer's blog</h1>
+<div class="navbar">
+    <div class="navbar-left">
+        <a href="/">Back To Blog</a>
+    </div>
+    <div class="dropdown" id="login"><div onclick="dropdown()" class="dropbtn">Login</div>
+        <div class="dropdown-content" id="dropdown-menu">
+            <form class="dropdown-form">
+                <input class="custom-input" type="text" name="username" placeholder="username">
+                <input class="custom-input" type="password" name="password" placeholder="password"><br>
+                <a class="custom-button" href="/signin.html">Signup</a>
+                <div class="custom-button" type="submit">Submit</div>
+            </form>
+        </div>
+    </div>
+
 </div>
+<div class="blog-header">
+    <div id="blog-title-grandma">Blind Grandma</div>
+    <div id="blog-title-developer">Developer's Blog</div>
+</div>
+
 
 <div class="blog-content">
     <div class="blog-post">
@@ -24,7 +41,7 @@
         </div>
         <p><%= blogPostJson["rows"][0]["content"] %></p>
         <div class="post-footer">
-            <textarea id="tinymce"></textarea>
+            <!-- TODO: put comments here -->
         </div>
     </div>
 </div>
