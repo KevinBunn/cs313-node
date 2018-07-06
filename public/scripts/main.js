@@ -18,7 +18,7 @@ function createNewPost(title, content, id, callback) {
     blogHeader.setAttribute('class', 'post-header');
     let blogTitle = document.createElement('h1');
     blogTitle.classList.add('title');
-    blogTitle.innerHtml = title;
+    blogTitle.innerHTML = title;
     blogHeader.appendChild(blogTitle);
     let blogAuthor = document.createElement('div');
     blogAuthor.classList.add('author');
