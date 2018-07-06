@@ -7,15 +7,20 @@ function handleBlog(req, res) {
         else {
             console.log(JSON.stringify(results));
             let resultsJson = JSON.parse(JSON.stringify(results));
+            let tracker = 0;
             resultsJson["rows"].forEach(function(row) {
                 blogModel.getUserInfo(row.admin_id, function(username) {
                     row.admin_id = username;
+                    tracker++;
+                    console.log(tacker,resultsJson.length);
+                    if (tracker == resultsJson.length){
+                        console.log("getting ready to load");
+                        res.locals.blogPostJson = resultsJson;
+                        //res.locals.username = username;
+                        res.render("pages/index");
+                    }
                 });
             });
-            console.log("getting ready to load");
-            res.locals.blogPostJson = resultsJson;
-            //res.locals.username = username;
-            res.render("pages/index");
         }
     })
 }
