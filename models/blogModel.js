@@ -104,10 +104,22 @@ function addPost(title, content, admin_id, callback) {
     });
 }
 
+function login(username, password, callback) {
+    pool.query('SELECT id, username, password FROM "user" WHERE username = $1', [username], function (err, res) {
+        if (err) {
+            throw err;
+        }
+        else {
+            // TODO: check to see if passwords match using bcrypt, then maybe save session variable?
+        }
+    })
+}
+
 module.exports = {
     getUserInfo: getUserInfo,
     getAllPosts: getAllPosts,
     getSinglePost: getSinglePost,
     addUser: addUser,
-    addPost: addPost
+    addPost: addPost,
+    login: login
 };

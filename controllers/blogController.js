@@ -59,9 +59,17 @@ function handleNewPost(req, res) {
     });
 }
 
+function handleLogin(req, res) {
+    blogModel.login(req.body.username, req.body.password, function(err, result) {
+        // TODO: see if login was valid. else send bad login
+       res.json(result);
+    });
+}
+
 module.exports = {
     handleBlog: handleBlog,
     handleSignup: handleSignup,
     handleSinglePost: handleSinglePost,
-    handleNewPost: handleNewPost
+    handleNewPost: handleNewPost,
+    handleLogin: handleLogin
 };

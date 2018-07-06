@@ -43,7 +43,7 @@ window.onclick = function(event) {
     //console.log(event.target);
     if (!event.target.matches('.dropbtn') && !event.target.matches('.custom-input')) {
 
-        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var dropdowns = document.getElementsByClassName('dropdown-content');
         var i;
         for (i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
@@ -71,6 +71,29 @@ function addPost() {
             console.log("there was and error in the ajax call");
         }
     });
+}
+
+function login() {
+    let username = document.getElementById('txtUsername').value;
+    let password = document.getElementById('passwordInput').value;
+    callAjaxLogin('/login', username, password, function(res) {
+        console.log(`back from ajax call with response: ${res}`);
+
+    });
+}
+
+function callAjaxLogin(url, username, password, callback) {
+    var xmlhttp;
+    // compatible with IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            callback(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("POST", url, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(`username=${username}&password=${password}`);
 }
 
 function callAjaxPost(url, title, content, callback){

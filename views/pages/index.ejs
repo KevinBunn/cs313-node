@@ -11,15 +11,16 @@
 <body>
     <div class="navbar">
         <div class="navbar-left">
+            <!-- TODO: check session variable to see if user is admin -->
             <span onclick="showNewPostForm()" id="show-new-post-button">Submit New Post</span>
         </div>
         <div class="dropdown" id="login"><div onclick="dropdown()" class="dropbtn">Login</div>
             <div class="dropdown-content" id="dropdown-menu">
                 <form class="dropdown-form">
-                    <input class="custom-input" type="text" name="username" placeholder="username">
-                    <input class="custom-input" type="password" name="password" placeholder="password"><br>
+                    <input id="txtUsername" class="custom-input" type="text" name="username" placeholder="username">
+                    <input id="passwordInput" class="custom-input" type="password" name="password" placeholder="password"><br>
                     <a class="custom-button" href="/signin.html">Signup</a>
-                    <div class="custom-button" type="submit">Submit</div>
+                    <div class="custom-button" onclick="login()">Login</div>
                 </form>
             </div>
         </div>
