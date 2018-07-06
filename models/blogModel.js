@@ -118,6 +118,7 @@ function login(username, password, callback) {
                         {isAdmin: res.rows[0].is_admin}
                     ]
                 };
+                console.log(result[0]["status"]);
                 bcrypt.compare(password, res.rows[0].password, function (err, res) {
                     if (err)
                         throw err;
