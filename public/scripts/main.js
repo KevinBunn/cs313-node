@@ -78,7 +78,10 @@ function login() {
     let password = document.getElementById('passwordInput').value;
     callAjaxLogin('/login', username, password, function(res) {
         console.log(`back from ajax call with response: ${res}`);
-
+        resJson = JSON.parse(res);
+        if (resJson["status"] === "success") {
+            console.log("logged in!");
+        }
     });
 }
 

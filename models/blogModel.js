@@ -110,7 +110,27 @@ function login(username, password, callback) {
             throw err;
         }
         else {
-            // TODO: check to see if passwords match using bcrypt, then maybe save session variable?
+            bcrypt.compare(password, res.rows[0].password, function (err, res) {
+                if (err)
+                    throw err;
+                else {
+                    if(res) {
+                        let result = {
+                            status: 'success',
+                            id: res.rows[0].id
+                        };
+
+                        callback(null, result);
+                    }
+                    else {
+                        let result = {
+                            status: 'fail',
+                            id: res.rows[0].id
+                        }
+                        callback(null, result);
+                    }
+                }
+            });
         }
     })
 }

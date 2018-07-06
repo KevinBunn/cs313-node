@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session')
 const PORT = process.env.PORT || 5000;
 const path = require('path');
 
@@ -9,6 +10,7 @@ express()
     .use(express.static(path.join(__dirname, '/public')))
     .use(express.json())     // to support JSON-encoded bodies
     .use(express.urlencoded(extended = true)) // mainly used for post
+    .use(session({ secret: 'Blind Grandma', cookie: { maxAge: 60000 }}))
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
     .get('/', controller.handleBlog)
