@@ -18,16 +18,12 @@ body {
     color: white;
 }
 
-#login {
-    position: relative;
+.navbar-right {
     margin-right: 10px;
-    top: 30%;
 }
 
 .navbar-left {
-    top: 30%;
     margin-left: 10px;
-    position: relative;
 }
 
 #new-post-container {

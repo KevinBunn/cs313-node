@@ -17,6 +17,7 @@
             <% }
               } %>
         </div>
+        <div class="navbar-right">
         <% if(loggedIn) {%>
             <div class="dropdown" id="user-dropdown">
                 <div onclick="dropdownUser()" class="dropbtn"><%= user[0]["name"] %></div>
@@ -37,6 +38,7 @@
                 </div>
             </div>
         <%} %>
+        </div>
 
     </div>
     <div class="blog-header">
