@@ -12,6 +12,7 @@ function handleBlog(req, res) {
                     row.admin_id = username;
                 });
             });
+            console.log("getting ready to load");
             res.locals.blogPostJson = resultsJson;
             //res.locals.username = username;
             res.render("pages/index");
