@@ -12,9 +12,8 @@
     <div class="navbar">
         <div class="navbar-left">
             <% if(loggedIn) {
-                console.log(user[1]["isAdmin"]);
-                if(user[1]["isAdmin"] == true) { %>
-                <span onclick="showNewPostForm()" id="show-new-post-button">Submit New Post</span>
+                if(user[1]["isAdmin"]) { %>
+                <span onclick="showNewPostForm()" id="show-new-post-button show">Submit New Post</span>
             <% }
               } %>
         </div>

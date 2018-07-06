@@ -42,6 +42,34 @@ function createNewPost(title, content, id, callback) {
     callback(newBlogPost);
 }
 
+function manageNavbarLogin(user) {
+    if (user[1]["isAdmin"]) {
+        let newPostSpan = document.createElement('span');
+        newPostSpan.setAttribute('onclick', "showNewPostForm()");
+        newPostSpan.setAttribute('id', id="show-new-post-button show");
+        newPostSpan.innerHTML = "Submit New Post";
+        document.getElementsByClassName('navbar-left')[0].appendChild(newPostSpan);
+    }
+    let newDropdown = document.createElement('div');
+    newDropdown.classList.add('dropdown');
+    newDropdown.setAttribute('id', "user-dropdown");
+    let dropButton = document.createElement('div');
+    dropButton.setAttribute('onclick','dropdownUser()');
+    dropButton.classList.add('dropbtn');
+    dropButton.innerHTML = user[0]["name"];
+    newDropdown.appendChild(dropButton);
+    let dropdownMenu = document.createElement('div');
+    dropdownMenu.classList.add('dropdown-content');
+    dropdownMenu.setAttribute('id', 'dropdown-menu-user');
+    let newLink = document.createElement('a');
+    newLink.setAttribute('onclick','logout()');
+    newLink.setAttribute('href', '#');
+    dropdownMenu.appendChild(newLink);
+    newDropdown.appendChild(dropdownMenu);
+    document.getElementById('login').setAttribute('style','display: none');
+    document.getElementByClassName('navbar')[0].appendChild(newDropdown);
+}
+
 window.onclick = function(event) {
     //console.log(event.target);
     if (!event.target.matches('.dropbtn') && !event.target.matches('.custom-input')) {
@@ -85,6 +113,7 @@ function login() {
         resJson = JSON.parse(res);
         if (resJson["status"] === "success") {
             console.log("logged in!");
+            manageNavbarLogin(resJson["user"]);
         }
     });
 }
