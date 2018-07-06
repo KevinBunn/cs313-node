@@ -86,7 +86,7 @@ function addUser(username, password, email, callback) {
     });
 }
 
-function addPost(title, content, admin_id) {
+function addPost(title, content, admin_id, callback) {
     pool.query('INSERT INTO post (title, content, admin_id, date_created) ' +
         'VALUES ($1, $2, $3, CURRENT_TIMESTAMP) RETURNING id', [title, content, admin_id], function (err, res) {
         if (err) {
