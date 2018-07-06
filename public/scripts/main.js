@@ -60,9 +60,9 @@ function addPost() {
     console.log(content);
     callAjax(`/addPost?title=${title}&content=${content}`, function(res) {
         console.log(`back from ajax call with response: ${res}`);
-
-        if (res["status"] === "success") {
-            createNewPost(title, content, res["id"], function (newBlogPost) {
+        resJson = JSON.parse(res);
+        if (resJson["status"] === "success") {
+            createNewPost(title, content, resJson["id"], function (newBlogPost) {
                 hideNewPostForm();
                 document.getElementById("main-content").appendChild(newBlogPost);
             });
