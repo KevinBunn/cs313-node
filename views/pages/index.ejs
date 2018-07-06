@@ -20,14 +20,14 @@
         </div>
         <% if(loggedIn) {%>
             <div class="dropdown" id="user-dropdown">
-                <div onclick="dropdown()" class="dropbtn"><%= user["name"] %></div>
-                <div class="dropdown-content" id="dropdown-menu">
+                <div onclick="dropdownUser()" class="dropbtn"><%= user["name"] %></div>
+                <div class="dropdown-content" id="dropdown-menu-user">
                     <a href="#" onclick="logout()">Logout</a>
                 </div>
             </div>
         <% }
         else { %>
-            <div class="dropdown" id="login"><div onclick="dropdown()" class="dropbtn">Login</div>
+            <div class="dropdown" id="login"><div onclick="dropdownLogin()" class="dropbtn">Login</div>
                 <div class="dropdown-content" id="dropdown-menu-login">
                     <form class="dropdown-form">
                         <input id="txtUsername" class="custom-input" type="text" name="username" placeholder="username">

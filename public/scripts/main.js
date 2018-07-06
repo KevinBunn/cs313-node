@@ -7,8 +7,11 @@ function hideNewPostForm() {
     newPostForm.setAttribute('style','display: none');
 }
 
-function dropdown() {
+function dropdownLogin() {
     document.getElementById('dropdown-menu-login').classList.add('show');
+}
+function dropdownUser() {
+    document.getElementById('dropdown-menu-user').classList.add('show');
 }
 
 function createNewPost(title, content, id, callback) {
