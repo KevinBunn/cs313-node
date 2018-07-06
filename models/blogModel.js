@@ -111,7 +111,7 @@ function login(username, password, callback) {
         }
         else {
             if (res.rows.length === 1) {
-                var result = {
+                let result = {
                     status: 'success',
                     user: [
                         {name: res.rows[0].username},
@@ -126,15 +126,13 @@ function login(username, password, callback) {
                             callback(null, result);
                         }
                         else {
-                            result["status"] = 'fail';
-                            callback(null, result);
+                            callback(null, {status: 'fail'});
                         }
                     }
                 });
             }
             else {
-                let result = {status: 'fail'};
-                callback(null, result);
+                callback(null, {status: 'fail'});
             }
 
         }
