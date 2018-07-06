@@ -38,6 +38,7 @@ body {
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 30px;
+    max-width: 875px;
 }
 
 .custom-input {
