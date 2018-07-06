@@ -7,10 +7,13 @@ function handleBlog(req, res) {
         else {
             console.log(JSON.stringify(results));
             let resultsJson = JSON.parse(JSON.stringify(results));
-            let username = blogModel.getUserInfo(resultsJson["rows"][0]["admin_id"]);
-            console.log(username);
+            resultsJson["rows"].forEach(function(row) {
+                blogModel.getUserInfo(row.admin_id, function(username) {
+                    row.admin_id = username;
+                });
+            });
             res.locals.blogPostJson = resultsJson;
-            res.locals.username = username;
+            //res.locals.username = username;
             res.render("pages/index");
         }
     })

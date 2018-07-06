@@ -7,7 +7,7 @@ const pool = new Pool({
     connectionString: connectionString
 });
 
-function getUserInfo (userId) {
+function getUserInfo (userId, callback) {
     console.log(`User id = ${userId}`);
     pool.query('SELECT * FROM "user" WHERE id = $1', [userId], function(err, res) {
         if (err) {
@@ -23,7 +23,7 @@ function getUserInfo (userId) {
 
             let resultJson = JSON.parse(JSON.stringify(result));
             console.log(resultJson["rows"][0]["username"]);
-            return resultJson["rows"][0]["username"];
+            callback(resultJson["rows"][0]["username"]);
         }
 
     })
