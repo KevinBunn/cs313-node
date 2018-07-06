@@ -67,7 +67,7 @@ function manageNavbarLogin(user) {
     dropdownMenu.appendChild(newLink);
     newDropdown.appendChild(dropdownMenu);
     document.getElementById('login').setAttribute('style','display: none');
-    document.getElementByClassName('navbar')[0].appendChild(newDropdown);
+    document.getElementsByClassName('navbar')[0].appendChild(newDropdown);
 }
 
 window.onclick = function(event) {
