@@ -110,27 +110,28 @@ function login(username, password, callback) {
             throw err;
         }
         else {
-            bcrypt.compare(password, res.rows[0].password, function (err, res) {
-                if (err)
-                    throw err;
-                else {
-                    if(res) {
-                        let result = {
-                            status: 'success',
-                            id: res.rows[0].id
-                        };
-
-                        callback(null, result);
-                    }
+            console.log(res.rows.length);
+            if (res.rows.length === 1) {
+                bcrypt.compare(password, res.rows[0].password, function (err, res) {
+                    if (err)
+                        throw err;
                     else {
-                        let result = {
-                            status: 'fail',
-                            id: res.rows[0].id
+                        if (res) {
+                            let result = {
+                                status: 'success',
+                            };
+
+                            callback(null, result);
                         }
-                        callback(null, result);
+                        else {
+                            let result = {
+                                status: 'fail',
+                            };
+                            callback(null, result);
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     })
 }
