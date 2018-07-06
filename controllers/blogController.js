@@ -66,8 +66,8 @@ function handleLogin(req, res) {
         }
         else {
             //resJson = JSON.parse(result);
-            if (resJson["status"] === "success") {
-                req.session.user = resJson["user"];
+            if (result["status"] === "success") {
+                req.session.user = result["user"];
                 res.json({status: 'success', user: req.session.user});
             }
 
