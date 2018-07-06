@@ -16,7 +16,7 @@ body {
     background-color: #90d3ca;
     margin: 0px;
     color: white;
-    font-family: Heritage;
+    font-family: Heritage, Helvetica, sans-serif;
 }
 
 #login {
