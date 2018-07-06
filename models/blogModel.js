@@ -86,9 +86,28 @@ function addUser(username, password, email, callback) {
     });
 }
 
+function addPost(title, content, admin_id) {
+    pool.query('INSERT INTO post (title, content, admin_id, date_created) ' +
+        'VALUES ($1, $2, $3, CURRENT_TIMESTAMP) RETURNING id', [title, content, admin_id], function (err, res) {
+        if (err) {
+            throw err;
+        } else {
+            // We got a result from the db...
+            console.log('Inserted into post at id: ' + res.rows[0].id);
+            let result = {
+                status: 'success',
+                id: res.rows[0].id
+            };
+
+            callback(null, result);
+        }
+    });
+}
+
 module.exports = {
     getUserInfo: getUserInfo,
     getAllPosts: getAllPosts,
     getSinglePost: getSinglePost,
-    addUser: addUser
+    addUser: addUser,
+    addPost: addPost
 };

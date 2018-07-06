@@ -38,9 +38,21 @@ function handleSinglePost(req, res) {
     });
 }
 
+function handleNewPost(req, res) {
+    blogModel.addPost(req.params.title, req.params.content, 1, function(err, result) {
+        if(err){
+            console.log(err);
+            res.json({success: false});
+        }
+        else {
+            res.json(result);
+        }
+    });
+}
 
 module.exports = {
     handleBlog: handleBlog,
     handleSignup: handleSignup,
-    handleSinglePost: handleSinglePost
+    handleSinglePost: handleSinglePost,
+    handleNewPost: handleNewPost
 };

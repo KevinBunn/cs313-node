@@ -14,4 +14,5 @@ express()
     .get('/', controller.handleBlog)
     .get('/post/:id', controller.handleSinglePost)
     .post('/addUser', controller.handleSignup)
+    .get('/addPost', controller.handleNewPost)
     .listen(PORT, () => console.log(`Listening on ${ PORT }`));
