@@ -83,6 +83,6 @@ function callAjaxPost(url, callback){
         }
     }
     xmlhttp.open("POST", url, true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(`title=${title}&content=${content}`);
 }
