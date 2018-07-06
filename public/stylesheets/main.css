@@ -1,5 +1,5 @@
 body {
-    background-color: aquamarine;
+    background-image: url("/stylesheets/splash_screen.jpg");
     margin: 0px;
 }
 #login {
