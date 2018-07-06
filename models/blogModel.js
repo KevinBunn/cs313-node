@@ -30,7 +30,7 @@ function getUserInfo (userId) {
 }
 
 function getAllPosts (callback) {
-    pool.query('SELECT id, title, content, admin_id, date_created FROM post ORDER_BY date_created ASC', function(err, res) {
+    pool.query('SELECT id, title, content, admin_id, date_created FROM post ORDER BY date_created ASC', function(err, res) {
         if (err) {
             throw err;
         } else {
