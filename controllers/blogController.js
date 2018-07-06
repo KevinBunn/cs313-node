@@ -6,6 +6,9 @@ function handleBlog(req, res) {
         res.locals.loggedIn = true;
         res.locals.user = req.session.user;
     }
+    else {
+        res.locals.loggedIn = false;
+    }
 
     blogModel.getAllPosts(function (err, results) {
         if (err)
