@@ -1,6 +1,12 @@
 const blogModel = require('../models/blogModel');
 
 function handleBlog(req, res) {
+
+    if (req.session.user) {
+        res.locals.loggedIn = true;
+        res.locals.user = req.session.user;
+    }
+
     blogModel.getAllPosts(function (err, results) {
         if (err)
             console.log(err);
@@ -13,10 +19,9 @@ function handleBlog(req, res) {
                     row.admin_id = username;
                     tracker++;
                     console.log(tracker,resultsJson["rows"].length);
-                    if (tracker == resultsJson["rows"].length){
+                    if (tracker === resultsJson["rows"].length){
                         console.log("getting ready to load");
                         res.locals.blogPostJson = resultsJson;
-                        //res.locals.username = username;
                         res.render("pages/index");
                     }
                 });
@@ -65,13 +70,10 @@ function handleLogin(req, res) {
             console.log(err);
         }
         else {
-            //resJson = JSON.parse(result);
             if (result["status"] === "success") {
                 req.session.user = result["user"];
                 res.json({status: 'success', user: req.session.user});
             }
-
-
         }
     });
 }

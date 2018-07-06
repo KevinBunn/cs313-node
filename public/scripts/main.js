@@ -8,7 +8,7 @@ function hideNewPostForm() {
 }
 
 function dropdown() {
-    document.getElementById('dropdown-menu').classList.add('show');
+    document.getElementById('dropdown-menu-login').classList.add('show');
 }
 
 function createNewPost(title, content, id, callback) {
