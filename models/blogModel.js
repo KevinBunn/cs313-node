@@ -105,33 +105,38 @@ function addPost(title, content, admin_id, callback) {
 }
 
 function login(username, password, callback) {
-    pool.query('SELECT id, username, password FROM "user" WHERE username = $1', [username], function (err, res) {
+    pool.query('SELECT id, username, password, is_admin FROM "user" WHERE username = $1', [username], function (err, res) {
         if (err) {
             throw err;
         }
         else {
-            console.log(res.rows.length);
             if (res.rows.length === 1) {
+                let result = {
+                    status: 'success',
+                    user: [
+                        {name: res.rows[0].username},
+                        {isAdmin: res.rows[0].is_admin}
+                    ]
+                };
                 bcrypt.compare(password, res.rows[0].password, function (err, res) {
                     if (err)
                         throw err;
                     else {
                         if (res) {
-                            let result = {
-                                status: 'success',
-                            };
-
                             callback(null, result);
                         }
                         else {
-                            let result = {
-                                status: 'fail',
-                            };
+                            result["status"] = 'fail';
                             callback(null, result);
                         }
                     }
                 });
             }
+            else {
+                let result = {status: 'fail'};
+                callback(null, result);
+            }
+
         }
     })
 }
