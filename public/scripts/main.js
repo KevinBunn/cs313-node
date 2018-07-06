@@ -56,7 +56,7 @@ window.onclick = function(event) {
 
 function addPost() {
     let title = document.getElementById("txtTitle").value;
-    let content = tinymce.get("texteditor").getContent();
+    let content = tinymce.get("tinymce").getContent();
     console.log(content);
     callAjax(`/addPost?title=${title}&content=${content}`, function(res) {
         console.log(`back from ajax call with response: ${res}`);
