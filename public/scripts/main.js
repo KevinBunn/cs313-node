@@ -64,7 +64,7 @@ function addPost() {
         if (resJson["status"] === "success") {
             createNewPost(title, content, resJson["id"], function (newBlogPost) {
                 hideNewPostForm();
-                document.getElementById("main-content").appendChild(newBlogPost);
+                document.getElementById("main-content").prepend(newBlogPost);
             });
         }
         else {
