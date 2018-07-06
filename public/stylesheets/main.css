@@ -2,7 +2,7 @@ body {
     /*background: url("/stylesheets/splash_screen.jpg") no-repeat fixed center center / cover;*/
     background-color: #90d3ca;
     margin: 0px;
-    text-color: white;
+    color: white;
 }
 #login {
     position: relative;
@@ -129,7 +129,7 @@ body {
     padding-bottom: 30px;
     padding-top: 15px;
     border: black solid 1px;
-    background-color: darkturquoise;
+    background-color: #75cac1;
     text-align: left;
 }
 
