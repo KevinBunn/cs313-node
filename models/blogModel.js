@@ -111,7 +111,7 @@ function login(username, password, callback) {
         }
         else {
             if (res.rows.length === 1) {
-                let result = {
+                var result = {
                     status: 'success',
                     user: [
                         {name: res.rows[0].username},
