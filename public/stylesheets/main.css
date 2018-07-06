@@ -1,9 +1,24 @@
+@font-face {
+    font-family: GothamBlack;
+    src: url("fonts/Gotham-Black.ttf");
+}
+@font-face {
+    font-family: GothamBlackItalic;
+    src: url("fonts/Gotham-BlackItalic.ttf");
+}
+@font-face {
+    font-family: Heritage;
+    src: url("fonts/Heritage Font.otf");
+}
+
 body {
     /*background: url("/stylesheets/splash_screen.jpg") no-repeat fixed center center / cover;*/
     background-color: #90d3ca;
     margin: 0px;
     color: white;
+    font-family: Heritage;
 }
+
 #login {
     position: relative;
     margin-right: 10px;
