@@ -12,7 +12,7 @@ function handleBlog(req, res) {
                 blogModel.getUserInfo(row.admin_id, function(username) {
                     row.admin_id = username;
                     tracker++;
-                    console.log(tacker,resultsJson.length);
+                    console.log(tracker,resultsJson.length);
                     if (tracker == resultsJson.length){
                         console.log("getting ready to load");
                         res.locals.blogPostJson = resultsJson;
