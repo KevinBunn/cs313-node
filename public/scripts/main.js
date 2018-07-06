@@ -64,6 +64,7 @@ function manageNavbarLogin(user) {
     let newLink = document.createElement('a');
     newLink.setAttribute('onclick','logout()');
     newLink.setAttribute('href', '#');
+    newLink.innerHTML = "Logout";
     dropdownMenu.appendChild(newLink);
     newDropdown.appendChild(dropdownMenu);
     document.getElementById('login').setAttribute('style','display: none');
