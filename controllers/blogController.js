@@ -82,10 +82,20 @@ function handleLogin(req, res) {
     });
 }
 
+function handleLogout(req, res) {
+    req.session.destroy(function (err) {
+        if (err)
+            console.log(err);
+        else
+            res.json({status: "success"});
+    });
+}
+
 module.exports = {
     handleBlog: handleBlog,
     handleSignup: handleSignup,
     handleSinglePost: handleSinglePost,
     handleNewPost: handleNewPost,
-    handleLogin: handleLogin
+    handleLogin: handleLogin,
+    handleLogout: handleLogout
 };

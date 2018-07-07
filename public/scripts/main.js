@@ -71,6 +71,10 @@ function manageNavbarLogin(user) {
     document.getElementsByClassName('navbar-right')[0].appendChild(newDropdown);
 }
 
+function manageNavbarLogout() {
+    console.log("logged out!");
+}
+
 window.onclick = function(event) {
     //console.log(event.target);
     if (!event.target.matches('.dropbtn') && !event.target.matches('.custom-input')) {
@@ -117,6 +121,25 @@ function login() {
             manageNavbarLogin(resJson["user"]);
         }
     });
+}
+
+function logout() {
+    callAjax('/logout', function() {
+        manageNavbarLogout();
+    });
+}
+
+function callAjax(url, callback) {
+    var xmlhttp;
+    // compatible with IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            callback(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
 }
 
 function callAjaxLogin(url, username, password, callback) {
