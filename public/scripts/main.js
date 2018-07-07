@@ -125,6 +125,7 @@ function manageNavbarLogout() {
         newForm.appendChild(loginButton);
         dropdownMenu.appendChild(newForm);
         newDropdown.appendChild(dropdownMenu);
+        document.getElementsByClassName('navbar-right')[0].appendChild(newDropdown);
     }
 
     if (document.querySelector('#show-new-post-button')) {
