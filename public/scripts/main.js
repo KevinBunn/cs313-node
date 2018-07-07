@@ -84,7 +84,7 @@ function manageNavbarLogin(user) {
 }
 
 function manageNavbarLogout() {
-    if (document.querySelector('#login') != null) {
+    if (document.querySelector('#login')) {
         document.getElementById('login').setAttribute('style','display: block');
     }
     else {
