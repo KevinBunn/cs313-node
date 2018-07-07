@@ -43,14 +43,14 @@ function createNewPost(title, content, id, callback) {
 }
 
 function manageNavbarLogin(user) {
-    if (user[1]["isAdmin"]) {
+    if (user[0]["isAdmin"]) {
         if (document.querySelector('#show-new-post-button')) {
             document.getElementById('show-new-post-button').setAttribute('style','display: block');
         }
         else {
             let newPostSpan = document.createElement('span');
             newPostSpan.setAttribute('onclick', "showNewPostForm()");
-            newPostSpan.setAttribute('id', id = "show-new-post-button");
+            newPostSpan.setAttribute('id', "show-new-post-button");
             newPostSpan.innerHTML = "Submit New Post";
             document.getElementsByClassName('navbar-left')[0].appendChild(newPostSpan);
         }
@@ -197,7 +197,7 @@ function callAjax(url, callback) {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
             callback(xmlhttp.responseText);
         }
-    }
+    };
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 }
@@ -210,7 +210,7 @@ function callAjaxLogin(url, username, password, callback) {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
             callback(xmlhttp.responseText);
         }
-    }
+    };
     xmlhttp.open("POST", url, true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(`username=${username}&password=${password}`);
@@ -224,7 +224,7 @@ function callAjaxPost(url, title, content, callback){
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
             callback(xmlhttp.responseText);
         }
-    }
+    };
     xmlhttp.open("POST", url, true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(`title=${title}&content=${content}`);

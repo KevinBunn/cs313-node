@@ -8,7 +8,7 @@ const pool = new Pool({
 });
 
 function getUserInfo (userId, callback) {
-    //console.log(`User id = ${userId}`);
+    //sdconsole.log(`User id = ${userId}`);
     pool.query('SELECT * FROM "user" WHERE id = $1', [userId], function(err, res) {
         if (err) {
             throw err;
@@ -114,8 +114,11 @@ function login(username, password, callback) {
                 let result = {
                     status: 'success',
                     user: [
-                        {name: res.rows[0].username},
-                        {isAdmin: res.rows[0].is_admin}
+                        {
+                            name: res.rows[0].username,
+                            isAdmin: res.rows[0].is_admin,
+                            id: res.rows[0].id
+                        }
                     ]
                 };
                 console.log(result["status"]);
