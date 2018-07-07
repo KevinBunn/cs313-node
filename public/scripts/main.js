@@ -86,7 +86,6 @@ function manageNavbarLogin(user) {
 function manageNavbarLogout() {
     if (document.querySelector('#login') != null) {
         document.getElementById('login').setAttribute('style','display: block');
-        document.getElementById('user-dropdown').setAttribute('style', 'display: none');
     }
     else {
         let newDropdown = document.createElement('div');
@@ -131,6 +130,8 @@ function manageNavbarLogout() {
     if (document.querySelector('#show-new-post-button')) {
         document.getElementById('show-new-post-button').setAttribute('style', 'display: none');
     }
+
+    document.getElementById('user-dropdown').setAttribute('style', 'display: none');
 }
 
 window.onclick = function(event) {
