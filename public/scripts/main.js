@@ -72,7 +72,53 @@ function manageNavbarLogin(user) {
 }
 
 function manageNavbarLogout() {
-    console.log("logged out!");
+    if (document.querySelector('#login') != null) {
+        document.getElementById('login').setAttribute('style','display: block');
+        document.getElementById('user-dropdown').setAttribute('style', 'display: none');
+    }
+    else {
+        let newDropdown = document.createElement('div');
+        newDropdown.classList.add('dropdown');
+        newDropdown.setAttribute('id', "login");
+        let dropButton = document.createElement('div');
+        dropButton.setAttribute('onclick','dropdownLogin()');
+        dropButton.classList.add('dropbtn');
+        dropButton.innerHTML = "Login";
+        newDropdown.appendChild(dropButton);
+        let dropdownMenu = document.createElement('div');
+        dropdownMenu.classList.add('dropdown-content');
+        dropdownMenu.setAttribute('id', 'dropdown-menu-login');
+        let newForm = document.createElement('form');
+        newForm.classList.add('dropdown-form');
+        let usernameInput = document.createElement('input');
+        usernameInput.classList.add('custom-input');
+        usernameInput.setAttribute('type', 'text');
+        usernameInput.setAttribute('id', 'txtUsername');
+        usernameInput.setAttribute('placeholder','username');
+        let passwordInput = document.createElement('input');
+        passwordInput.classList.add('custom-input');
+        passwordInput.setAttribute('type', 'password');
+        passwordInput.setAttribute('id', 'passwordInput');
+        passwordInput.setAttribute('placeholder','password');
+        let newLink = document.createElement('a');
+        newLink.classList.add('custom-button');
+        newLink.setAttribute('href', '/signin.html');
+        newLink.innerHTML = "Signup";
+        let loginButton = document.createElement('div');
+        loginButton.setAttribute('onclick', 'login()');
+        loginButton.classList.add('custom-button');
+        loginButton.innerHTML = "Login";
+        newForm.appendChild(usernameInput);
+        newForm.appendChild(passwordInput);
+        newForm.appendChild(newLink);
+        newForm.appendChild(loginButton);
+        dropdownMenu.appendChild(newForm);
+        newDropdown.appendChild(dropdownMenu);
+    }
+
+    if (document.querySelector('#show-new-post-button')) {
+        document.getElementById('show-new-post-button').setAttribute('style', 'display: none');
+    }
 }
 
 window.onclick = function(event) {
