@@ -57,7 +57,7 @@ function handleSinglePost(req, res) {
 }
 
 function handleNewPost(req, res) {
-    blogModel.addPost(req.body.title, req.body.content, 1, function(err, result) {
+    blogModel.addPost(req.body.title, req.body.content, req.session.user, function(err, result) {
         if(err){
             console.log(err);
             res.json({success: false});

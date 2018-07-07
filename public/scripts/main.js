@@ -14,7 +14,7 @@ function dropdownUser() {
     document.getElementById('dropdown-menu-user').classList.add('show');
 }
 
-function createNewPost(title, content, id, callback) {
+function createNewPost(title, content, id, admin, callback) {
     let newBlogPost = document.createElement('div');
     newBlogPost.setAttribute('class', 'blog-post');
     let blogHeader = document.createElement('div');
@@ -25,7 +25,7 @@ function createNewPost(title, content, id, callback) {
     blogHeader.appendChild(blogTitle);
     let blogAuthor = document.createElement('div');
     blogAuthor.classList.add('author');
-    blogAuthor.innerHTML = "1";
+    blogAuthor.innerHTML = `by: ${admin}`;
     blogHeader.appendChild(blogAuthor);
     newBlogPost.appendChild(blogHeader);
     let blogContent = document.createElement('p');
@@ -158,7 +158,7 @@ function addPost() {
         console.log(`back from ajax call with response: ${res}`);
         resJson = JSON.parse(res);
         if (resJson["status"] === "success") {
-            createNewPost(title, content, resJson["id"], function (newBlogPost) {
+            createNewPost(title, content, resJson["id"], resJson["admin"], function (newBlogPost) {
                 hideNewPostForm();
                 document.getElementById("main-content").prepend(newBlogPost);
             });
