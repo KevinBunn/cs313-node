@@ -46,7 +46,7 @@ function manageNavbarLogin(user) {
     if (user[1]["isAdmin"]) {
         let newPostSpan = document.createElement('span');
         newPostSpan.setAttribute('onclick', "showNewPostForm()");
-        newPostSpan.setAttribute('id', id="show-new-post-button show");
+        newPostSpan.setAttribute('id', id="show-new-post-button");
         newPostSpan.innerHTML = "Submit New Post";
         document.getElementsByClassName('navbar-left')[0].appendChild(newPostSpan);
     }
