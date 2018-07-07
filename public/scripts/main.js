@@ -44,31 +44,43 @@ function createNewPost(title, content, id, callback) {
 
 function manageNavbarLogin(user) {
     if (user[1]["isAdmin"]) {
-        let newPostSpan = document.createElement('span');
-        newPostSpan.setAttribute('onclick', "showNewPostForm()");
-        newPostSpan.setAttribute('id', id="show-new-post-button");
-        newPostSpan.innerHTML = "Submit New Post";
-        document.getElementsByClassName('navbar-left')[0].appendChild(newPostSpan);
+        if (document.querySelector('#show-new-post-button')) {
+            document.getElementById('show-new-post-button').setAttribute('style','display: block');
+        }
+        else {
+            let newPostSpan = document.createElement('span');
+            newPostSpan.setAttribute('onclick', "showNewPostForm()");
+            newPostSpan.setAttribute('id', id = "show-new-post-button");
+            newPostSpan.innerHTML = "Submit New Post";
+            document.getElementsByClassName('navbar-left')[0].appendChild(newPostSpan);
+        }
     }
-    let newDropdown = document.createElement('div');
-    newDropdown.classList.add('dropdown');
-    newDropdown.setAttribute('id', "user-dropdown");
-    let dropButton = document.createElement('div');
-    dropButton.setAttribute('onclick','dropdownUser()');
-    dropButton.classList.add('dropbtn');
-    dropButton.innerHTML = user[0]["name"];
-    newDropdown.appendChild(dropButton);
-    let dropdownMenu = document.createElement('div');
-    dropdownMenu.classList.add('dropdown-content');
-    dropdownMenu.setAttribute('id', 'dropdown-menu-user');
-    let newLink = document.createElement('a');
-    newLink.setAttribute('onclick','logout()');
-    newLink.setAttribute('href', '#');
-    newLink.innerHTML = "Logout";
-    dropdownMenu.appendChild(newLink);
-    newDropdown.appendChild(dropdownMenu);
+    if (document.querySelector('#user-dropdown')) {
+        document.getElementById('user-dropdown').setAttribute('style','display: block');
+    }
+    else {
+        let newDropdown = document.createElement('div');
+        newDropdown.classList.add('dropdown');
+        newDropdown.setAttribute('id', "user-dropdown");
+        let dropButton = document.createElement('div');
+        dropButton.setAttribute('onclick', 'dropdownUser()');
+        dropButton.classList.add('dropbtn');
+        dropButton.innerHTML = user[0]["name"];
+        newDropdown.appendChild(dropButton);
+        let dropdownMenu = document.createElement('div');
+        dropdownMenu.classList.add('dropdown-content');
+        dropdownMenu.setAttribute('id', 'dropdown-menu-user');
+        let newLink = document.createElement('a');
+        newLink.setAttribute('onclick', 'logout()');
+        newLink.setAttribute('href', '#');
+        newLink.innerHTML = "Logout";
+        dropdownMenu.appendChild(newLink);
+        newDropdown.appendChild(dropdownMenu);
+        document.getElementsByClassName('navbar-right')[0].appendChild(newDropdown);
+    }
+
     document.getElementById('login').setAttribute('style','display: none');
-    document.getElementsByClassName('navbar-right')[0].appendChild(newDropdown);
+
 }
 
 function manageNavbarLogout() {
