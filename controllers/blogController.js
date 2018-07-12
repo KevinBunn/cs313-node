@@ -60,8 +60,8 @@ function handleSinglePost(req, res) {
         else {
             console.log(JSON.stringify(postResults));
             let postJson = JSON.parse(JSON.stringify(postResults));
-            blogModel.getUserInfo(postJson["rows"][0][admin_id], function(adminName) {
-                postJson["rows"][0][admin_id] = adminName;
+            blogModel.getUserInfo(postJson["rows"][0]["admin_id"], function(adminName) {
+                postJson["rows"][0]["admin_id"] = adminName;
                 res.locals.blogPostJson = postJson;
                 blogModel.getPostComments(req.params.id, function(err, commentResults) {
                     if (err) {
