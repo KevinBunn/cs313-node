@@ -57,7 +57,7 @@
             <% if (!loggedIn) { %>
             <div class="add-comment" onclick="dropdownLogin()">Log In To Comment</div>
             <% } else { %>
-            <div class="add-comment">Post Comment</div>
+            <div class="add-comment" onclick="addComment(<% blogPostJson["rows"][0]["id"] %>)">Post Comment</div>
             <% } %>
             <div class="comment-container">
             <% commentsJson["rows"].forEach(function(row) {  %>

@@ -85,6 +85,18 @@ function handleNewPost(req, res) {
     });
 }
 
+function handleNewComment(req, res) {
+    blogModel.addComment(req.body.postId, req.body.content, req.session.user, function(err, result) {
+        if(err){
+            console.log(err);
+            res.json({success: false});
+        }
+        else {
+            res.json(result);
+        }
+    });
+}
+
 function handleLogin(req, res) {
     blogModel.login(req.body.username, req.body.password, function(err, result) {
         if(err) {
@@ -113,6 +125,7 @@ module.exports = {
     handleSignup: handleSignup,
     handleSinglePost: handleSinglePost,
     handleNewPost: handleNewPost,
+    handleNewComment: handleNewComment,
     handleLogin: handleLogin,
     handleLogout: handleLogout
 };

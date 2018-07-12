@@ -105,6 +105,25 @@ function addPost(title, content, user, callback) {
     });
 }
 
+function addComment(postId, content, user, callback) {
+    pool.query('INSERT INTO comment (post_id, user_id, content, date_created) ' +
+        'VALUES ($1, $2, $3, CURRENT_TIMESTAMP) RETURNING id', [postId, user[0]["id"]], content, function (err, res) {
+        if (err) {
+            throw err;
+        } else {
+            // We got a result from the db...
+            console.log('Inserted into comment at id: ' + res.rows[0].id);
+            let result = {
+                status: 'success',
+                id: res.rows[0].id,
+                user: user[0]["name"]
+            };
+
+            callback(null, result);
+        }
+    });
+}
+
 function login(username, password, callback) {
     pool.query('SELECT id, username, password, is_admin FROM "user" WHERE username = $1', [username], function (err, res) {
         if (err) {
@@ -167,6 +186,7 @@ module.exports = {
     getSinglePost: getSinglePost,
     addUser: addUser,
     addPost: addPost,
+    addComment: addComment,
     login: login,
     getPostComments: getPostComments
 };

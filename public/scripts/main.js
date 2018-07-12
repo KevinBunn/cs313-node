@@ -170,6 +170,20 @@ function addPost() {
     });
 }
 
+function addComment(postId) {
+    let content = tinymce.get("add-comment-area").getContent();
+    callAjaxComment(`/addComment`, postId, content, function(res) {
+        console.log(`back from ajax call with response: ${res}`);
+        resJson = JSON.parse(res);
+        if (resJson["status"] === "success") {
+            console.log("success!");
+        }
+        else {
+            console.log("there was and error in the ajax call");
+        }
+    });
+}
+
 function login() {
     let username = document.getElementById('txtUsername').value;
     let password = document.getElementById('passwordInput').value;
@@ -201,6 +215,20 @@ function callAjax(url, callback) {
     };
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
+}
+
+function callAjaxComment(url, postId, content, callback){
+    var xmlhttp;
+    // compatible with IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            callback(xmlhttp.responseText);
+        }
+    };
+    xmlhttp.open("POST", url, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(`postId=${postId}&content=${content}`);
 }
 
 function callAjaxLogin(url, username, password, callback) {

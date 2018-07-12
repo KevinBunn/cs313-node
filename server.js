@@ -18,5 +18,6 @@ express()
     .get('/logout', controller.handleLogout)
     .post('/addUser', controller.handleSignup)
     .post('/addPost', controller.handleNewPost)
+    .post('/addComment', controller.handleNewComment)
     .post('/login', controller.handleLogin)
     .listen(PORT, () => console.log(`Listening on ${ PORT }`));
