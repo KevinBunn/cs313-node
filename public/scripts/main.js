@@ -44,7 +44,7 @@ function createNewPost(title, content, id, admin, callback) {
 
 function manageNavbarLogin(user) {
     console.log(window.location.href);
-    if (user[0]["isAdmin"] && window.location.href === "http://young-fortress-92177.herokuapp.com") {
+    if (user[0]["isAdmin"] && window.location.href === "http://young-fortress-92177.herokuapp.com/") {
         if (document.querySelector('#show-new-post-button')) {
             document.getElementById('show-new-post-button').setAttribute('style','display: block');
         }
