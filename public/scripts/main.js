@@ -172,6 +172,7 @@ function addPost() {
 
 function addComment(postId) {
     let content = tinymce.get("add-comment-area").getContent();
+    console.log(content);
     callAjaxComment(`/addComment`, postId, content, function(res) {
         console.log(`back from ajax call with response: ${res}`);
         resJson = JSON.parse(res);
