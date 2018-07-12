@@ -51,9 +51,14 @@
         </div>
         <%- blogPostJson["rows"][0]["content"] %>
         <div class="post-footer">
-            <div class="comment-count"><%- commentsJson["rows"].length %> comments</div>
             <hr>
-            <textarea class="add-comment-area"></textarea>
+            <div class="comment-count"><%- commentsJson["rows"].length %> comments</div>
+            <textarea class="add-comment-area" placeholder="Leave a comment"></textarea>
+            <% if (!loggedIn) { %>
+            <div class="add-comment" onclick="dropdownLogin()">Log In To Comment</div>
+            <% } else { %>
+            <div class="add-comment">Post Comment</div>
+            <% } %>
             <div class="comment-container">
             <% commentsJson["rows"].forEach(function(row) {  %>
                <div class="comment-header">
