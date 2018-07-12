@@ -4,8 +4,11 @@ const bcrypt = require('bcrypt');
 const connectionString = process.env.DATABASE_URL;
 
 const pool = new Pool({
-    connectionString: connectionString
+    connectionString: connectionString,
+    ssl: true
 });
+
+pool.connect();
 
 function getUserInfo (userId, callback) {
     //sdconsole.log(`User id = ${userId}`);
