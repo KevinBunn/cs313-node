@@ -3,12 +3,6 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     <script type="text/javascript" src="/scripts/main.js"></script>
-    <script src="/node_modules/tinymce/tinymce.min.js"></script>
-    <script>
-        tinymce.init({
-            selector: '#tinymce'
-        });
-    </script>
 </head>
 <body>
 <div class="navbar">
@@ -42,6 +36,16 @@
         <%- blogPostJson["rows"][0]["content"] %>
         <div class="post-footer">
             <!-- TODO: put comments here -->
+            <div class="comment-container">
+            <% commentsJson["rows"].forEach(function(row) {  %>
+               <div class="comment-header">
+                   <div class="author">by: <%= row.user_id %></div>
+               </div>
+                <div class="comment-content">
+                    <%= row.content %>
+                </div>
+            <% });%>
+            </div>
         </div>
     </div>
 </div>

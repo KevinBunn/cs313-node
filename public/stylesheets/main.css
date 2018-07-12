@@ -61,7 +61,7 @@ body {
 .blog-content {
     max-width: 875px;
     text-align: center;
-    margin: 10px auto 50px;
+    margin: 10px 3em 50px;
     z-index: 20;
     font-family: GothamBlack, sans-serif;
 }

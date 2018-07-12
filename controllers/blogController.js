@@ -45,13 +45,21 @@ function handleSignup(req, res) {
 }
 
 function handleSinglePost(req, res) {
-    blogModel.getSinglePost(req.params.id, function(err, results) {
+    blogModel.getSinglePost(req.params.id, function(err, postResults) {
         if (err)
             console.log(err);
         else {
-            console.log(JSON.stringify(results));
-            res.locals.blogPostJson = JSON.parse(JSON.stringify(results));
-            res.render("pages/post");
+            console.log(JSON.stringify(postResults));
+            res.locals.blogPostJson = JSON.parse(JSON.stringify(postResults));
+            blogModel.getPostComments(req.params.id, function(err, commentResults) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.locals.commentsJson = JSON.parse(JSON.stringify(commentResults));
+                    res.render("pages/post");
+                }
+            });
         }
     });
 }

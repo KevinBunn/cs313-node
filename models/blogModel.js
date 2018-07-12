@@ -145,11 +145,28 @@ function login(username, password, callback) {
     })
 }
 
+function getPostComments(postId, callback) {
+    pool.query("SELECT user_id, contet FROM comment WHERE post_id = $1", [postId], function (err, res) {
+        if (err) {
+            throw err;
+        }
+        else {
+            let results = {
+                status: "status",
+                rows: res.rows
+            };
+
+            callback(null, results);
+        }
+    });
+}
+
 module.exports = {
     getUserInfo: getUserInfo,
     getAllPosts: getAllPosts,
     getSinglePost: getSinglePost,
     addUser: addUser,
     addPost: addPost,
-    login: login
+    login: login,
+    getPostComments: getPostComments
 };
