@@ -161,6 +161,11 @@ body {
     margin-bottom: 5px;
 }
 
+.add-comment {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
 .author {
 
 }
