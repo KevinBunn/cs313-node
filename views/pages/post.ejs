@@ -1,6 +1,8 @@
 <!DOCTYPE>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     <script type="text/javascript" src="/scripts/main.js"></script>
 </head>
@@ -35,7 +37,9 @@
         </div>
         <%- blogPostJson["rows"][0]["content"] %>
         <div class="post-footer">
-            <!-- TODO: put comments here -->
+            <% if(loggedIn) {%>
+            <button class="add-comment-button">Add Comment</button>
+            <% } %>
             <div class="comment-container">
             <% commentsJson["rows"].forEach(function(row) {  %>
                <div class="comment-header">

@@ -45,6 +45,13 @@ function handleSignup(req, res) {
 }
 
 function handleSinglePost(req, res) {
+    if (req.session.user) {
+        console.log(req.session.user);
+        res.locals.loggedIn = true;
+    }
+    else {
+        res.locals.loggedIn = false;
+    }
     blogModel.getSinglePost(req.params.id, function(err, postResults) {
         if (err)
             console.log(err);
