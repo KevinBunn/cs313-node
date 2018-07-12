@@ -48,6 +48,8 @@ function handleSinglePost(req, res) {
     if (req.session.user) {
         console.log(req.session.user);
         res.locals.loggedIn = true;
+        res.locals.user = req.session.user;
+
     }
     else {
         res.locals.loggedIn = false;
