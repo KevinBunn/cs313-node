@@ -3,6 +3,6 @@ tinymce.init({
     menubar: false,
     statusbar: false,
     toolbar: false,
-    plugins: "paste, image",
+    plugins: "paste",
     paste_as_text: true
 });
