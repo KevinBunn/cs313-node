@@ -59,15 +59,31 @@ function handleSinglePost(req, res) {
             console.log(err);
         else {
             console.log(JSON.stringify(postResults));
-            res.locals.blogPostJson = JSON.parse(JSON.stringify(postResults));
-            blogModel.getPostComments(req.params.id, function(err, commentResults) {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    res.locals.commentsJson = JSON.parse(JSON.stringify(commentResults));
-                    res.render("pages/post");
-                }
+            let postJson = JSON.parse(JSON.stringify(postResults));
+            blogModel.getUserInfo(postJson["rows"][0][admin_id], function(adminName) {
+                postJson["rows"][0][admin_id] = adminName;
+                res.locals.blogPostJson = postJson;
+                blogModel.getPostComments(req.params.id, function(err, commentResults) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        let commentsJson = JSON.parse(JSON.stringify(commentResults));
+                        let tracker = 0;
+                        commentsJson["rows"].forEach(function(row) {
+                            blogModel.getUserInfo(row.user_id, function(username) {
+                                row.user_id = username;
+                                tracker++;
+                                //console.log(tracker,resultsJson["rows"].length);
+                                if (tracker === commentsJson["rows"].length){
+                                    console.log("getting ready to load");
+                                    res.locals.commentsJson = commentsJson;
+                                    res.render("pages/post");
+                                }
+                            });
+                        });
+                    }
+                });
             });
         }
     });
