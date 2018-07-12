@@ -59,6 +59,7 @@
             <% } else { %>
             <div class="add-comment" onclick="addComment(<%- blogPostJson["rows"][0]["id"] %>)">Post Comment</div>
             <% } %>
+            <hr>
             <div class="comment-container">
             <% commentsJson["rows"].forEach(function(row) {  %>
                <div class="comment-header">
