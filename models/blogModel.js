@@ -108,7 +108,7 @@ function addPost(title, content, user, callback) {
 
 function addComment(postId, content, user, callback) {
     pool.query('INSERT INTO comment (post_id, user_id, content, date_created) ' +
-        'VALUES ($1, $2, $3, CURRENT_TIMESTAMP) RETURNING id', [postId, user[0]["id"]], content, function (err, res) {
+        'VALUES ($1, $2, $3, CURRENT_TIMESTAMP) RETURNING id', [postId, user[0]["id"], content], function (err, res) {
         if (err) {
             throw err;
         } else {
