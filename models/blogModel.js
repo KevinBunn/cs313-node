@@ -8,8 +8,6 @@ const pool = new Pool({
     ssl: true
 });
 
-pool.connect();
-
 function getUserInfo (userId, callback) {
     //sdconsole.log(`User id = ${userId}`);
     pool.query('SELECT * FROM "user" WHERE id = $1', [userId], function(err, res) {
