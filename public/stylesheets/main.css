@@ -157,8 +157,12 @@ body {
 }
 
 .title {
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 5px;
+}
+
+.comment-count {
+    margin: 10px 0 10px;
 }
 
 .add-comment {
