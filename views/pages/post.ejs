@@ -50,7 +50,7 @@
             <div class="author">by: <%= blogPostJson["rows"][0]["admin_id"] %></div>
         </div>
         <%- blogPostJson["rows"][0]["content"] %>
-        <div class="post-footer">
+        <div class="post-footer"><hr>
             <% if(loggedIn) {%>
             <textarea class="add-comment-area"></textarea>
             <% } %>
