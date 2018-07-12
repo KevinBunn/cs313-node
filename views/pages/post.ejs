@@ -53,7 +53,7 @@
         <div class="post-footer">
             <hr>
             <div class="comment-count"><%- commentsJson["rows"].length %> comments</div>
-            <textarea class="add-comment-area" placeholder="Leave a comment"></textarea>
+            <textarea id="tinymce" class="add-comment-area" placeholder="Leave a comment"></textarea>
             <% if (!loggedIn) { %>
             <div class="add-comment" onclick="dropdownLogin()">Log In To Comment</div>
             <% } else { %>
