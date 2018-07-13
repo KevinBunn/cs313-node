@@ -65,7 +65,7 @@ body {
 }
 
 .blog-content {
-    max-width: 875px;
+    /*max-width: 875px;*/
     text-align: center;
     margin: 10px 3em 50px;
     z-index: 20;

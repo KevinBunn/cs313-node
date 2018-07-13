@@ -147,7 +147,7 @@ function manageCommentsPermission() {
         addCommentButton.classList.add("add-comment");
         addCommentButton.setAttribute('id', 'post-comment-text');
         let urlArray = window.location.href.split('/');
-        addCommentButton.setAttribute('onclick', `addComment(${urlArray[2]})`);
+        addCommentButton.setAttribute('onclick', `addComment(${urlArray[4]})`);
         addCommentButton.innerHTML = "Post Comment";
         document.getElementById('add-comment-container').appendChild(addCommentButton);
     }
