@@ -136,7 +136,7 @@ function manageNavbarLogout() {
     document.getElementById('user-dropdown').setAttribute('style', 'display: none');
 }
 
-function manageCommentsPermission() {
+function manageCommentsPermissionLogin() {
     document.getElementById('login-comment-text').setAttribute('style', 'display: none');
 
     if (document.querySelector('post-comment-text')) {
@@ -149,6 +149,22 @@ function manageCommentsPermission() {
         let urlArray = window.location.href.split('/');
         addCommentButton.setAttribute('onclick', `addComment(${urlArray[4]})`);
         addCommentButton.innerHTML = "Post Comment";
+        document.getElementById('add-comment-container').appendChild(addCommentButton);
+    }
+}
+
+function manageCommentsPermissionLogout() {
+    document.getElementById('post-comment-text').setAttribute('style', 'display: none');
+
+    if (document.querySelector('login-comment-text')) {
+        document.getElementById('login-comment-text').setAttribute('style', 'display: block');
+    }
+    else {
+        let addCommentButton = document.createElement('div');
+        addCommentButton.classList.add("add-comment");
+        addCommentButton.setAttribute('id', 'login-comment-text');
+        addCommentButton.setAttribute('onclick', `dropdownLogin()`);
+        addCommentButton.innerHTML = "Log In To Comment";
         document.getElementById('add-comment-container').appendChild(addCommentButton);
     }
 }
@@ -213,7 +229,7 @@ function login() {
             console.log("logged in!");
             manageNavbarLogin(resJson["user"]);
             if (document.querySelector(".add-comment"))
-                manageCommentsPermission();
+                manageCommentsPermissionLogin();
         }
     });
 }
@@ -221,6 +237,8 @@ function login() {
 function logout() {
     callAjax('/logout', function() {
         manageNavbarLogout();
+        if (document.querySelector(".add-comment"))
+            manageCommentsPermissionLogout();
     });
 }
 
