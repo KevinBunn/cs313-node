@@ -73,7 +73,7 @@ function manageNavbarLogin(user) {
         dropdownMenu.setAttribute('id', 'dropdown-menu-user');
         let newLink = document.createElement('a');
         newLink.setAttribute('onclick', 'logout()');
-        newLink.setAttribute('href', '#');
+        //newLink.setAttribute('href', '#');
         newLink.innerHTML = "Logout";
         dropdownMenu.appendChild(newLink);
         newDropdown.appendChild(dropdownMenu);
