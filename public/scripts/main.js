@@ -136,6 +136,23 @@ function manageNavbarLogout() {
     document.getElementById('user-dropdown').setAttribute('style', 'display: none');
 }
 
+function manageCommentsPermission() {
+    document.getElementById('login-comment-text').setAttribute('style', 'display: none');
+
+    if (document.querySelector('post-comment-text')) {
+        document.getElementById('post-comment-text').setAttribute('style', 'display: block');
+    }
+    else {
+        let addCommentButton = document.createElement('div');
+        addCommentButton.classList.add("add-comment");
+        addCommentButton.setAttribute('id', 'post-comment-text');
+        let urlArray = window.location.href.split('/');
+        addCommentButton.setAttribute('onclick', `addComment(${urlArray[2]})`);
+        addCommentButton.innerHTML = "Post Comment";
+        document.getElementById('add-comment-container').appendChild(addCommentButton);
+    }
+}
+
 window.onclick = function(event) {
     //console.log(event.target);
     if (!event.target.matches('.dropbtn') && !event.target.matches('.custom-input')) {
@@ -195,6 +212,8 @@ function login() {
         if (resJson["status"] === "success") {
             console.log("logged in!");
             manageNavbarLogin(resJson["user"]);
+            if (document.querySelector(".add-comment"))
+                manageCommentsPermission();
         }
     });
 }
