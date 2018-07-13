@@ -139,7 +139,7 @@ function manageNavbarLogout() {
 function manageCommentsPermissionLogin() {
     document.getElementById('login-comment-text').setAttribute('style', 'display: none');
 
-    if (document.querySelector('post-comment-text')) {
+    if (document.querySelector('#post-comment-text')) {
         document.getElementById('post-comment-text').setAttribute('style', 'display: block');
     }
     else {
@@ -156,7 +156,7 @@ function manageCommentsPermissionLogin() {
 function manageCommentsPermissionLogout() {
     document.getElementById('post-comment-text').setAttribute('style', 'display: none');
 
-    if (document.querySelector('login-comment-text')) {
+    if (document.querySelector('#login-comment-text')) {
         document.getElementById('login-comment-text').setAttribute('style', 'display: block');
     }
     else {
