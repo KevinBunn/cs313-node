@@ -184,6 +184,7 @@ function addToComments(username, content) {
     commentContent.innerHTML = content;
     newComment.appendChild(commentContent);
     document.getElementsByClassName('comment-container')[0].prepend(newComment);
+    tinymce.activeEditor.setContent('');
 }
 
 window.onclick = function(event) {
