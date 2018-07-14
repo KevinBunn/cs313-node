@@ -169,6 +169,23 @@ function manageCommentsPermissionLogout() {
     }
 }
 
+function addToComments(username, content) {
+    let newComment = document.createElement('div');
+    newComment.classList.add('comment');
+    let newHeader = document.createElement('div');
+    newHeader.classList.add('comment-header');
+    let author = document.createElement('div');
+    author.classList.add('comment-author');
+    author.innerHTML = `by: ${username}`;
+    newHeader.appendChild(author);
+    newComment.appendChild(newHeader);
+    let commentContent = document.createElement('div');
+    commentContent.classList.add('comment-content');
+    commentContent.innerHTML = content;
+    newComment.appendChild(commentContent);
+    document.getElementsByClassName('comment-container')[0].prepend(newComment);
+}
+
 window.onclick = function(event) {
     //console.log(event.target);
     if (!event.target.matches('.dropbtn') && !event.target.matches('.custom-input')) {
@@ -210,7 +227,7 @@ function addComment(postId) {
         console.log(`back from ajax call with response: ${res}`);
         resJson = JSON.parse(res);
         if (resJson["status"] === "success") {
-            console.log("success!");
+            addToComments(resJson["user"], content);
         }
         else {
             console.log("there was and error in the ajax call");

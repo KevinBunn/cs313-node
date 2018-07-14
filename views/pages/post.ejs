@@ -64,11 +64,13 @@
             <hr>
             <div class="comment-container">
             <% commentsJson["rows"].forEach(function(row) {  %>
-               <div class="comment-header">
-                   <div class="comment-author">by: <%= row.user_id %></div>
-               </div>
-                <div class="comment-content">
-                    <%- row.content %>
+                <div class="comment">
+                   <div class="comment-header">
+                       <div class="comment-author">by: <%= row.user_id %></div>
+                   </div>
+                    <div class="comment-content">
+                        <%- row.content %>
+                    </div>
                 </div>
             <% });%>
             </div>

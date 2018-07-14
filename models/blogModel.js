@@ -167,7 +167,7 @@ function login(username, password, callback) {
 }
 
 function getPostComments(postId, callback) {
-    pool.query("SELECT user_id, content FROM comment WHERE post_id = $1", [postId], function (err, res) {
+    pool.query("SELECT user_id, content FROM comment WHERE post_id = $1 ORDER BY date_created DESC", [postId], function (err, res) {
         if (err) {
             throw err;
         }
