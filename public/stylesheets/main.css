@@ -110,6 +110,7 @@ body {
     background: url("/stylesheets/button.png") no-repeat center center;
     background-size: 100%;
     padding: 10px;
+    min-width: 75px;
     text-align: center;
     color: white;
     text-decoration: none;
