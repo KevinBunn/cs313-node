@@ -145,6 +145,7 @@ function manageCommentsPermissionLogin() {
     else {
         let addCommentButton = document.createElement('div');
         addCommentButton.classList.add("add-comment");
+        addCommentButton.classList.add("custom-button");
         addCommentButton.setAttribute('id', 'post-comment-text');
         let urlArray = window.location.href.split('/');
         addCommentButton.setAttribute('onclick', `addComment(${urlArray[4]})`);
@@ -162,6 +163,7 @@ function manageCommentsPermissionLogout() {
     else {
         let addCommentButton = document.createElement('div');
         addCommentButton.classList.add("add-comment");
+        addCommentButton.classList.add("custom-button");
         addCommentButton.setAttribute('id', 'login-comment-text');
         addCommentButton.setAttribute('onclick', `dropdownLogin()`);
         addCommentButton.innerHTML = "Log In To Comment";

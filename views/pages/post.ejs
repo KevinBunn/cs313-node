@@ -62,9 +62,9 @@
             <textarea id="tinymce" class="add-comment-area" placeholder="Leave a comment"></textarea>
             <div id="add-comment-container">
                 <% if (!loggedIn) { %>
-                <div id="login-comment-text" class="add-comment" onclick="dropdownLogin()">Log In To Comment</div>
+                <div id="login-comment-text" class="add-comment custom-button" onclick="dropdownLogin()">Log In To Comment</div>
                 <% } else { %>
-                <div id="post-comment-text" class="add-comment" onclick="addComment(<%- blogPostJson["rows"][0]["id"] %>)">Post Comment</div>
+                <div id="post-comment-text" class="add-comment custom-button" onclick="addComment(<%- blogPostJson["rows"][0]["id"] %>)">Post Comment</div>
                 <% } %>
             </div>
             <hr>

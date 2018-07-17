@@ -106,12 +106,11 @@ body {
 }
 
 .custom-button {
+    display: inline-block;
     background: url("/stylesheets/button.png") no-repeat center center;
     background-size: 100%;
-    height: 20px;
     padding: 10px;
     text-align: center;
-    width: 75px;
     color: white;
     text-decoration: none;
 }
