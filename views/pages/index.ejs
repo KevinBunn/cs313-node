@@ -61,7 +61,7 @@
         <div class="blog-post">
             <div class="post-header">
                 <h1 class="title"><%= row.title %></h1>
-                <div class="post-sub-header"><span class="author">by: <%= row.admin_id %></span> on <span class="post-date"><%= row.date_created %></span></div>
+                <div class="post-sub-header"><span class="author">by <%= row.admin_id %></span> on <span class="post-date"><%= row.date_created %></span></div>
             </div>
             <%- row.content %>
             <div class="post-footer">
