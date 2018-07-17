@@ -92,30 +92,6 @@ body {
 
 .custom-button {
     background: url('stylesheets/button.png');
-    margin: 5px;
-    text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    -webkit-appearance: push-button;
-    user-select: none;
-    white-space: pre;
-    align-items: flex-start;
-    text-align: center;
-    cursor: default;
-    color: buttontext;
-    background-color: buttonface;
-    box-sizing: border-box;
-    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
-    border-style: solid;
-    border-width: 1px;
-    padding: 1px 7px 2px;
-    text-decoration: none;
-    font-size: 12;
-    margin-top: 10px;
 }
 
 .dropbtn {
@@ -127,7 +103,7 @@ body {
 }
 
 .dropbtn:hover, .dropbtn:focus {
-    background-color: rgba(0,0,0,0.2);
+    text-decoration: underline;
 }
 
 .dropdown {
