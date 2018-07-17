@@ -314,3 +314,11 @@ function callAjaxPost(url, title, content, callback){
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(`title=${title}&content=${content}`);
 }
+
+function fixImageWidth() {
+    let images = document.getElementsByTagName('img');
+    for (let image of images) {
+       if (image.getBoundingClientRect().width > (document.getElementById('main-content').getBoundingClientRect().width - 60))
+           image.setAttribute('width', '100%');
+    }
+}
