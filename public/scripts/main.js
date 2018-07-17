@@ -191,7 +191,7 @@ function addToComments(username, content) {
 
 window.onclick = function(event) {
     //console.log(event.target);
-    if (!event.target.matches('.dropbtn') && !event.target.matches('.custom-input')) {
+    if (!event.target.matches('.dropbtn') && !event.target.matches('.custom-input') && !event.target.matches('#login-comment-text')) {
 
         var dropdowns = document.getElementsByClassName('dropdown-content');
         var i;
