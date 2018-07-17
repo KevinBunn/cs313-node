@@ -324,8 +324,7 @@ function fixImageWidth() {
     }
 }
 
-function scrollUp(event) {
+function scrollUp() {
     document.body.scrollTop = 0;
-    console.log(event.target);
     dropdownLogin();
 }
