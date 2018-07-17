@@ -91,12 +91,17 @@ body {
 }
 
 .custom-button {
-    background: url(/stylesheets/button.png) no-repeat center center;
+    background: url("/stylesheets/button.png") no-repeat center center;
     background-size: 100%;
     height: 20px;
     padding: 10px;
     text-align: center;
     width: 75px;
+}
+
+.custom-button:hover, .custom-button:focus {
+    background: url("/stylesheets/button-hover.png") no-repeat center center;
+    cursor: pointer;
 }
 
 .dropbtn {
