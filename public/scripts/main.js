@@ -113,12 +113,12 @@ function manageNavbarLogout() {
         passwordInput.setAttribute('id', 'passwordInput');
         passwordInput.setAttribute('placeholder','password');
         let newLink = document.createElement('a');
-        newLink.classList.add('custom-button');
+        newLink.classList.add('dropdown-custom-button');
         newLink.setAttribute('href', '/signin.html');
         newLink.innerHTML = "Signup";
         let loginButton = document.createElement('div');
         loginButton.setAttribute('onclick', 'login()');
-        loginButton.classList.add('custom-button');
+        loginButton.classList.add('dropdown-custom-button');
         loginButton.innerHTML = "Login";
         newForm.appendChild(usernameInput);
         newForm.appendChild(passwordInput);
