@@ -73,7 +73,7 @@ function handleSinglePost(req, res) {
                     else {
                         console.log("got comments info");
                         let commentsJson = JSON.parse(JSON.stringify(commentResults));
-                        if (commentsJson["rows"] > 0) {
+                        if (commentsJson["rows"].length > 0) {
                             let tracker = 0;
                             commentsJson["rows"].forEach(function (row) {
                                 blogModel.getUserInfo(row.user_id, function (username) {
