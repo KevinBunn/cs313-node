@@ -225,4 +225,7 @@ body {
         height: 250px;
         margin: 0 0 0 30px;
     }
+    .blog-header-text {
+        font-size: 1.3em;
+    }
 }
