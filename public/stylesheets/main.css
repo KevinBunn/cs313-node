@@ -199,6 +199,7 @@ body {
 }
 
 .comment-header {
+    margin-bottom: -10px;
     font-size: .7em;
 }
 
