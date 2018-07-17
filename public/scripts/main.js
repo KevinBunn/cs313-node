@@ -165,7 +165,7 @@ function manageCommentsPermissionLogout() {
         addCommentButton.classList.add("add-comment");
         addCommentButton.classList.add("custom-button");
         addCommentButton.setAttribute('id', 'login-comment-text');
-        addCommentButton.setAttribute('onclick', `dropdownLogin()`);
+        addCommentButton.setAttribute('onclick', `scrollTop()`);
         addCommentButton.innerHTML = "Log In To Comment";
         document.getElementById('add-comment-container').appendChild(addCommentButton);
     }
@@ -322,4 +322,8 @@ function fixImageWidth() {
        if (image.getBoundingClientRect().width > (document.getElementById('main-content').getBoundingClientRect().width - 60))
            image.setAttribute('width', '100%');
     }
+}
+
+function scrollTop() {
+    document.documentElement.scrollTop || document.body.scrollTop;
 }
