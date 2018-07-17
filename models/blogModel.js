@@ -49,7 +49,7 @@ function getAllPosts (callback) {
 }
 
 function getSinglePost (id, callback) {
-    pool.query('SELECT id, title, content, admin_id FROM post WHERE id = $1', [id], function(err, res) {
+    pool.query('SELECT id, title, content, admin_id, date_created FROM post WHERE id = $1', [id], function(err, res) {
         if (err) {
             throw err;
         } else {
