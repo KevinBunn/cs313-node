@@ -185,3 +185,14 @@ body {
 .post-header {
 
 }
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (min-width: 900px) {
+    .blog-content {
+        max-width: 875px;
+        text-align: center;
+        margin: 10px auto 50px;
+        z-index: 20;
+        font-family: GothamBlack, sans-serif;
+    }
+}
