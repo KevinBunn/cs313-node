@@ -91,6 +91,7 @@ body {
 }
 
 .custom-button {
+    background: url('stylesheets/button.png');
     margin: 5px;
     text-rendering: auto;
     letter-spacing: normal;
