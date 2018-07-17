@@ -39,7 +39,7 @@ function handleSignup(req, res) {
         if(err)
             console.log(err);
         else {
-            handleBlog(req, res);
+            res.redirect('/');
         }
     });
 }
