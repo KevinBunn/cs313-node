@@ -54,13 +54,16 @@ function handleSinglePost(req, res) {
     else {
         res.locals.loggedIn = false;
     }
+    console.log("getting single post")
     blogModel.getSinglePost(req.params.id, function(err, postResults) {
         if (err)
             console.log(err);
         else {
+            console.log("got a single post");
             console.log(JSON.stringify(postResults));
             let postJson = JSON.parse(JSON.stringify(postResults));
             blogModel.getUserInfo(postJson["rows"][0]["admin_id"], function(adminName) {
+                console.log("got user info for post");
                 postJson["rows"][0]["admin_id"] = adminName;
                 res.locals.blogPostJson = postJson;
                 blogModel.getPostComments(req.params.id, function(err, commentResults) {
@@ -68,15 +71,17 @@ function handleSinglePost(req, res) {
                         console.log(err);
                     }
                     else {
+                        console.log("got comments info")
                         let commentsJson = JSON.parse(JSON.stringify(commentResults));
                         let tracker = 0;
                         commentsJson["rows"].forEach(function(row) {
                             blogModel.getUserInfo(row.user_id, function(username) {
+                                console.log("got user info for comments")
                                 row.user_id = username;
                                 tracker++;
                                 //console.log(tracker,resultsJson["rows"].length);
                                 if (tracker === commentsJson["rows"].length){
-                                    console.log("getting ready to load");
+                                    console.log("getting ready to load the individual post");
                                     res.locals.commentsJson = commentsJson;
                                     res.render("pages/post");
                                 }
