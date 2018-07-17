@@ -12,7 +12,7 @@
 }
 
 body {
-    background: url("/stylesheets/background-pattern.jpg") repeat;
+    background: url("/stylesheets/background-pattern.png") repeat;
     /*background-color: #90d3ca;*/
     margin: 0px;
     color: white;
@@ -54,12 +54,12 @@ body {
     text-align: center;
 }
 #gma-header-image {
-    width: 250px;
-    height: 250px;
+    width: 100px;
+    height: 100px;
 }
 #meo-header-image {
-    width: 250px;
-    height: 250px;
+    width: 100px;
+    height: 100px;
 }
 #blog-title-grandma {
     font-size: 4em;
@@ -204,5 +204,20 @@ body {
         margin: 10px auto 50px;
         z-index: 20;
         font-family: GothamBlack, sans-serif;
+    }
+
+    .blog-header {
+        display: flex;
+        text-align: center;
+    }
+
+    #gma-header-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    #meo-header-image {
+        width: 250px;
+        height: 250px;
     }
 }
