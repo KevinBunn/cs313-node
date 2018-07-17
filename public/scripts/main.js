@@ -140,7 +140,7 @@ function manageCommentsPermissionLogin() {
     document.getElementById('login-comment-text').setAttribute('style', 'display: none');
 
     if (document.querySelector('#post-comment-text')) {
-        document.getElementById('post-comment-text').setAttribute('style', 'display: block');
+        document.getElementById('post-comment-text').setAttribute('style', 'display: inline-block');
     }
     else {
         let addCommentButton = document.createElement('div');
@@ -158,7 +158,7 @@ function manageCommentsPermissionLogout() {
     document.getElementById('post-comment-text').setAttribute('style', 'display: none');
 
     if (document.querySelector('#login-comment-text')) {
-        document.getElementById('login-comment-text').setAttribute('style', 'display: block');
+        document.getElementById('login-comment-text').setAttribute('style', 'display: inline-block');
     }
     else {
         let addCommentButton = document.createElement('div');
