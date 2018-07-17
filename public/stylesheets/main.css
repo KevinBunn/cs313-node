@@ -198,10 +198,13 @@ body {
 
 }
 
-.author {
-
+.comment-author {
+    font-size: .7em;
 }
 
+.comment-content {
+    margin-top: 5px;
+}
 .post-header {
 
 }
