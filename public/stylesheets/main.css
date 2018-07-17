@@ -12,8 +12,8 @@
 }
 
 body {
-    /*background: url("/stylesheets/splash_screen.jpg") no-repeat fixed center center / cover;*/
-    background-color: #90d3ca;
+    background: url("/stylesheets/background-pattern.jpg") repeat;
+    /*background-color: #90d3ca;*/
     margin: 0px;
     color: white;
 }
