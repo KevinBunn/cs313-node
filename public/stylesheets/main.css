@@ -50,7 +50,16 @@ body {
 }
 
 .blog-header {
+    display: flex;
     text-align: center;
+}
+#gma-header-image {
+    width: 250px;
+    height: 250px;
+}
+#meo-header-image {
+    width: 250px;
+    height: 250px;
 }
 #blog-title-grandma {
     font-size: 4em;
