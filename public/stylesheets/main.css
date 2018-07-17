@@ -90,8 +90,13 @@ body {
     border-radius: 5px;
 }
 
-.custom-button:hover, .custom-button:focus {
-    background: url('stylesheets/button.png');
+.custom-button {
+    background: url(/stylesheets/button.png) no-repeat center center;
+    background-size: 100%;
+    height: 20px;
+    padding: 10px;
+    text-align: center;
+    width: 75px;
 }
 
 .dropbtn {
@@ -102,11 +107,13 @@ body {
     min-width: 15px;
 }
 
-.dropbtn:hover, .dropbtn:focus, .custom-button:hover, .custom-button:focus, #show-new-post-button:hover, #show-new-post-button:focus {
+.dropbtn:hover, .dropbtn:focus, .dropdown-custom-button:hover, .dropdown-custom-button:focus, #show-new-post-button:hover, #show-new-post-button:focus {
     text-decoration: underline;
 }
 
-
+.button-row {
+    display: flex;
+}
 
 .dropdown {
     position: relative;

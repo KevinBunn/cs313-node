@@ -33,8 +33,8 @@
                         <input id="txtUsername" class="custom-input" type="text" name="username" placeholder="username">
                         <input id="passwordInput" class="custom-input" type="password" name="password" placeholder="password"><br>
                         <div class="button-row">
-                            <a class="custom-button" href="/signin.html">Signup</a>
-                            <a class="custom-button" onclick="login()">Login</a>
+                            <a class="dropdown-custom-button" href="/signin.html">Signup</a>
+                            <a class="dropdown-custom-button" onclick="login()">Login</a>
                         </div>
                     </form>
                 </div>
@@ -59,8 +59,10 @@
                 <input type="text" id="txtTitle" name="title"><br>
                 <label for="content">Content: </label><br>
                 <textarea id="tinymce" name="content"></textarea>
-                <div class="custom-button" onclick="hideNewPostForm()">Cancel</div>
-                <div class="custom-button" onclick="addPost()">Submit</div>
+                <div class="button-row">
+                    <div class="custom-button" onclick="hideNewPostForm()">Cancel</div>
+                    <div class="custom-button" onclick="addPost()">Submit</div>
+                </div>
             </form>
         </div>
         <% blogPostJson["rows"].forEach(function(row) { %>
