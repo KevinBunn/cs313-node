@@ -218,6 +218,7 @@ body {
     }
 
     .blog-header {
+        align-items: center;
         margin-top: 30px;
         display: flex;
         text-align: center;
