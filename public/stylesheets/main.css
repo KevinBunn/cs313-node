@@ -130,7 +130,7 @@ body {
     min-width: 15px;
 }
 
-.dropbtn:hover, .dropbtn:focus, .dropdown-custom-button:hover, .dropdown-custom-button:focus, #show-new-post-button:hover, #show-new-post-button:focus {
+.dropbtn:hover, .dropbtn:focus, .dropdown-custom-button:hover, .dropdown-custom-button:focus, .navbar-button:hover, .navbar-button:focus {
     text-decoration: underline;
 }
 
