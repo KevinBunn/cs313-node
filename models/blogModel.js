@@ -172,6 +172,7 @@ function getPostComments(postId, callback) {
             throw err;
         }
         else {
+            console.log("Results from database: " + JSON.stringify(res.rows));
             let results = {
                 status: "status",
                 rows: res.rows
