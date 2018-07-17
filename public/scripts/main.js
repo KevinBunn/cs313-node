@@ -324,6 +324,6 @@ function fixImageWidth() {
     }
 }
 
-function scrollTop() {
+function scrollUp() {
     document.body.scrollTop = 0;
 }
