@@ -239,7 +239,6 @@ function addComment(postId) {
 function login() {
     let username = document.getElementById('txtUsername').value;
     let password = document.getElementById('passwordInput').value;
-    console.log(username,password);
     callAjaxLogin('/login', username, password, function(res) {
         console.log(`back from ajax call with response: ${res}`);
         resJson = JSON.parse(res);
