@@ -12,8 +12,9 @@
 }
 
 body {
-    background: url("/stylesheets/background-pattern.png") repeat;
-    /*background-color: #90d3ca;*/
+    background: url("/stylesheets/background-pattern.png");
+    background-color: #90d3ca;
+    background-size: 300px;
     margin: 0px;
     color: white;
 }
@@ -50,7 +51,6 @@ body {
 }
 
 .blog-header {
-    display: flex;
     text-align: center;
 }
 #gma-header-image {
