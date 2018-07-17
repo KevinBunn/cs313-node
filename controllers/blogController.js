@@ -71,22 +71,28 @@ function handleSinglePost(req, res) {
                         console.log(err);
                     }
                     else {
-                        console.log("got comments info")
+                        console.log("got comments info");
                         let commentsJson = JSON.parse(JSON.stringify(commentResults));
-                        let tracker = 0;
-                        commentsJson["rows"].forEach(function(row) {
-                            blogModel.getUserInfo(row.user_id, function(username) {
-                                console.log("got user info for comments")
-                                row.user_id = username;
-                                tracker++;
-                                //console.log(tracker,resultsJson["rows"].length);
-                                if (tracker === commentsJson["rows"].length){
-                                    console.log("getting ready to load the individual post");
-                                    res.locals.commentsJson = commentsJson;
-                                    res.render("pages/post");
-                                }
+                        if (commentsJson["rows"] > 0) {
+                            let tracker = 0;
+                            commentsJson["rows"].forEach(function (row) {
+                                blogModel.getUserInfo(row.user_id, function (username) {
+                                    console.log("got user info for comments");
+                                    row.user_id = username;
+                                    tracker++;
+                                    //console.log(tracker,resultsJson["rows"].length);
+                                    if (tracker === commentsJson["rows"].length) {
+                                        console.log("getting ready to load the individual post");
+                                        res.locals.commentsJson = commentsJson;
+                                        res.render("pages/post");
+                                    }
+                                });
                             });
-                        });
+                        }
+                        else {
+                            res.locals.commentsJson = commentsJson;
+                            res.render("pages/post");
+                        }
                     }
                 });
             });
