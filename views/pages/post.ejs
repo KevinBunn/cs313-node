@@ -53,7 +53,7 @@
     <div class="blog-post">
         <div class="post-header">
             <h1 class="title"><%= blogPostJson["rows"][0]["title"] %></h1>
-            <div class="author">by: <%= blogPostJson["rows"][0]["admin_id"] %></div>
+            <div class="post-sub-header"><span class="author">by <%= blogPostJson["rows"][0]["admin_id"] %></span> on <span class="post-date"><%= blogPostJson["rows"][0]["date_created"].split('T')[0] %></span></div>
         </div>
         <%- blogPostJson["rows"][0]["content"] %>
         <div class="post-footer">
@@ -72,7 +72,7 @@
             <% commentsJson["rows"].forEach(function(row) {  %>
                 <div class="comment">
                    <div class="comment-header">
-                       <div class="comment-author">by: <%= row.user_id %></div>
+                       <span class="comment-author">by <%= row.user_id %></span> on <span><%= row.date_created.split('T')[0] %></span>
                    </div>
                     <div class="comment-content">
                         <%- row.content %>
